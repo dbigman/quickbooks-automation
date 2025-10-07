@@ -1,0 +1,56 @@
+# ~/.codex/config.toml
+# (Optional) allow tools that need the network (e.g., Odoo, fetch)
+network_access = true
+
+# --- JUPYTER ---
+[mcp_servers.jupyter]
+command = "uvx"
+args = ["jupyter-mcp-server", "start", "--transport", "stdio", "--provider", "jupyter", "--start-new-runtime", "true"]
+# autoApprove from mcp.json is not supported in Codex
+
+# --- CONTEXT7 ---
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+# --- PAMPA ---
+[mcp_servers.pampa]
+command = "npx"
+args = ["-y", "pampa", "mcp", "--debug"]
+
+# --- ODOO (uvx-distributed server) ---
+[mcp_servers."odoo-mcp-server"]
+command = "uvx"
+args = ["mcp-server-odoo"]
+env = {
+  ODOO_URL = "http://192.168.1.48",
+  ODOO_DB = "gasco",
+  ODOO_USER = "dbigman@gascoindustrial.com",
+  ODOO_PASSWORD = "",
+  ODOO_MCP_LOG_LEVEL = "INFO",
+  ODOO_MCP_DEFAULT_LIMIT = "10",
+  ODOO_MCP_MAX_LIMIT = "100"
+}
+
+# --- FETCH (HTTP client via stdio bridge) ---
+[mcp_servers.fetch]
+command = "uvx"
+args = ["mcp-server-fetch"]
+
+# --- EXCEL (Windows) ---
+[mcp_servers.excel]
+# Using cmd /c to ensure npx runs under Windows shell
+command = "cmd"
+args = ["/c", "npx", "--yes", "@negokaz/excel-mcp-server"]
+env = { EXCEL_MCP_PAGING_CELLS_LIMIT = "4000" }
+
+# --- FILESYSTEM (local repo path) ---
+[mcp_servers.filesystem]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", 'E:\Github\master_production_scheduler - alpha']
+# Tools: list_directory, read_file, get_file_info, list_allowed_directories
+
+# --- FILESYSTEM (OneDrive folder) ---
+[mcp_servers."filesystem-onedrive"]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", 'E:\OneDrive\OneDrive - Gasco Industrial Corp\Produccion - Documents']

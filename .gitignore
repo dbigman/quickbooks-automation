@@ -1,0 +1,35 @@
+# Python-generated files
+__pycache__/
+*.py[cod]
+*$py.class
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# Local environment files
+.env
+.env.*
+# Credentials/config (do not commit secrets)
+odoo_config.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+
+# Generated BOM exports at repository root
+/BOM_*.csv
+/Multi_Product_BOM_Export_*.csv
+/bom_export.csv
+/sample_qb_orders.csv
+
+# Build artifacts at repository root
+/*.spec

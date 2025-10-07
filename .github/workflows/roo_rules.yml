@@ -1,0 +1,39 @@
+name: Roo Rules Lint & Tests
+
+on:
+  pull_request:
+    paths:
+      - '**/*.py'
+      - '.clinerules/**'
+      - 'tests/**'
+      - '.github/workflows/roo_rules.yml'
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run Roo linter
+        run: |
+          # If roo CLI is available in workspace, use it; otherwise this is a placeholder.
+          if command -v roo >/dev/null 2>&1; then
+            roo lint --rules-dir .clinerules --target .
+          else
+            echo "roo CLI not found; skipping actual lint run in CI placeholder."
+          fi
+
+      - name: Run tests
+        run: |
+          pytest -q tests/roo_rules

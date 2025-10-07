@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "description": "Extraction schema for Odoo sales order date information",
+  "properties": {
+    "order_id": {
+      "type": "integer",
+      "description": "Unique identifier for the sales order in Odoo"
+    },
+    "order_date": {
+      "type": "string",
+      "description": "Order date from sale.order.date_order. Accepts common datetime strings (e.g., 'YYYY-MM-DD HH:MM:SS', 'YYYY-MM-DD', or ISO 8601). No strict ISO 8601 requirement."
+    }
+  },
+  "required": ["order_id", "order_date"],
+  "additionalProperties": false,
+  "notes": {
+    "odoo_model": "sale.order",
+    "odoo_field": "date_order",
+    "odoo_type": "datetime",
+    "timezone": "UTC",
+    "readonly_states": ["sale", "cancel"],
+    "validation": "Datetime strings are accepted in multiple common formats. ISO 8601 is supported but not required."
+  }
+}

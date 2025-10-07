@@ -1,0 +1,65 @@
+[project]
+name = "master-production-scheduler-alpha"
+version = "0.0.1"
+description = "Calculation of Master Production Schedule from Odoo"
+readme = "README.md"
+requires-python = ">=3.10.10"
+dependencies = [
+    # Core data processing
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+
+    # Excel export functionality
+    "openpyxl>=3.0.0",
+
+    # HTTP requests for Odoo API
+    "requests>=2.28.0",
+
+    # Environment variables
+    "python-dotenv>=1.0.0",
+
+    # Date/time handling
+    "python-dateutil>=2.8.0",
+
+    # Jupyter Notebooks (optional)
+    "jupyter>=1.0.0",
+    "notebook>=6.0.0",
+    "ipykernel>=6.0.0",
+
+    # Development and testing (optional)
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+
+    # Logging enhancements (optional)
+    "colorlog>=6.0.0",
+
+    # Type hints support
+    "typing-extensions>=4.0.0",
+
+    # MCP (Model Context Protocol) for test scripts
+    "mcp>=1.0.0",
+    "fastmcp>=2.0.0",
+    "odoo-mcp>=0.0.3",
+]
+
+[project.scripts]
+mps = "main:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = [
+    "main",
+    "logger",
+    "connector",
+    "calculator",
+    "exporter",
+    "warehouse_reporter",
+]
+
+[tool.pytest.ini_options]
+ testpaths = ["tests"]
