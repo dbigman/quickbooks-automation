@@ -22,6 +22,10 @@ ENV/
 # Credentials/config (do not commit secrets)
 odoo_config.json
 
+# MCP configuration files (may contain sensitive settings)
+mcp.json
+**/mcp.json
+
 # Testing
 .pytest_cache/
 .coverage
@@ -61,10 +65,10 @@ Thumbs.db
 
 # QuickBooks Auto Reporter specific
 # Report output files
-*.csv
-*.xlsx
+# *.csv
+# *.xlsx
 *.hash
-*.log
+# *.log
 *.xml
 quickbooks_diagnostics.json
 QuickBooks_Diagnostic_Report.xlsx
@@ -75,3 +79,5 @@ QuickBooks_Diagnostic_Report.xlsx
 # Exclude report output directories
 /Reports/
 /C:/Reports/
+/output/
+.kiro/settings/mcp.json

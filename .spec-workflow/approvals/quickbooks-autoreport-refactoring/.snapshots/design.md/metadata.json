@@ -1,0 +1,14 @@
+{
+  "filePath": ".spec-workflow/specs/quickbooks-autoreport-refactoring/design.md",
+  "currentVersion": 1,
+  "snapshots": [
+    {
+      "version": 1,
+      "filename": "snapshot-001.json",
+      "timestamp": "2025-10-08T14:31:48.672Z",
+      "trigger": "initial",
+      "approvalId": "approval_1759933908629_eqadboc6z",
+      "approvalTitle": "Approve Design: quickbooks-autoreport-refactoring"
+    }
+  ]
+}

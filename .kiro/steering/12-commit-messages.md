@@ -68,4 +68,33 @@ feat(ui)!: redesign header component
 BREAKING CHANGE: header now requires user authentication state to render.
 ```
 
+```text
+docs(spec): add sales dashboard specification
+
+Create comprehensive spec for Streamlit sales analytics dashboard including
+requirements, design, and implementation tasks.
+
+- Add requirements.md with user stories and acceptance criteria
+- Add design.md with architecture and component design
+- Add tasks.md with detailed implementation plan
+```
+
+```text
+chore(gitignore): exclude MCP configuration files
+
+Add mcp.json files to .gitignore to prevent committing sensitive settings.
+```
+
+## Project-Specific Scopes
+
+Common scopes used in this project:
+
+* **spec:** Specification documents and planning
+* **dashboard:** Streamlit dashboard application
+* **quickbooks:** QuickBooks integration and qbXML
+* **odoo:** Odoo ERP integration
+* **mps:** Material Planning System
+* **config:** Configuration files and settings
+* **deps:** Dependencies and package management
+
 Use this format for all commit messages to maintain consistency and enable automated tooling.
