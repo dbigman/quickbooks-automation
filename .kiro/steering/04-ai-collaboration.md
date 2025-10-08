@@ -1,6 +1,5 @@
 ---
-inclusion: fileMatch
-fileMatchPattern: ['**/*.*']
+inclusion: always
 ---
 
 # AI Collaboration & Prompting
@@ -14,3 +13,9 @@ fileMatchPattern: ['**/*.*']
 7. **Incremental Interaction:** Break down complex tasks into smaller steps. Review and confirm each step before proceeding.
 8. **Standard Check-in:** Before significant code suggestions, confirm understanding by summarizing context, goals, and planned steps.
 9. **Domain-Specific Guides:** For QuickBooks qbXML code generation, **ALWAYS** reference and follow `QuickBooks_Desktop_qbXML_ Report_Query_Guide.md` to ensure SDK compatibility.
+10. **AI Usage Guardrails:**
+    * Prefer enterprise-approved AI tools with enforced retention and model policies
+    * Never paste secrets, live customer data, or proprietary unredacted content into external tools
+    * Summarize significant AI assistance in PR descriptions when it affects design or implementation
+    * Do not use AI to generate cryptography, auth logic, or code that must meet strict compliance without expert review
+    * Validate AI-generated code with tests and reviews; never bypass review gates

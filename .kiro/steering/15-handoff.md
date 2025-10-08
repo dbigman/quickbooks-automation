@@ -1,6 +1,5 @@
 ---
-inclusion: fileMatch
-fileMatchPattern: ['**/*']
+inclusion: manual
 ---
 
 # Rule: Produce a Quick Handoff (Knowledge-Transfer) Doc

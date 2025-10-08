@@ -9,10 +9,12 @@ inclusion: always
    * **Always** check and review relevant project documentation **before** starting any task:
 
      * Product Requirements Documents (PRDs)
+     * Design documents and Architecture Decision Records (ADRs)
      * `README.md` (project overview, setup, patterns, technology stack)
      * `docs/architecture.md` (system architecture, component relationships)
      * `docs/technical.md` (technical specifications, established patterns)
      * `tasks/tasks.md` (current development tasks, requirements)
+     * `CHANGELOG.md` (version history and notable changes)
      * **QuickBooks Integration**: `QuickBooks_Desktop_qbXML_ Report_Query_Guide.md` for any qbXML report generation
    * If documentation is missing, unclear, or conflicts with the request, **ask for clarification**.
 

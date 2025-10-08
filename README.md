@@ -1,236 +1,409 @@
-# QuickBooks Order Exporter
+# QuickBooks Auto Reporter
 
-A standalone Python tool for exporting QuickBooks sales orders to Excel with Odoo ERP enrichment.
+Automated multi-report generation for QuickBooks Desktop with scheduled execution, professional Excel formatting, and business analytics.
+
+## Overview
+
+QuickBooks Auto Reporter automates the generation of 9 different QuickBooks reports with configurable scheduling, change detection, and professional Excel output. The tool connects directly to QuickBooks Desktop via qbXML API and generates both CSV and formatted Excel reports.
 
 ## Features
 
-- 📥 **CSV Import**: Parse QuickBooks CSV exports (by customer or by item format)
-- 🔗 **Odoo Integration**: Enrich orders with real-time Odoo data (products, inventory, BOMs)
-- 📊 **Excel Export**: Generate professional Excel reports with multiple sheets
-- 🏭 **Production Planning**: Organize orders by production line with to_produce calculations
-- 📅 **ETA Calculation**: Automatic ETA date calculation (10 business days from order date)
-- 🎨 **Professional Formatting**: Corporate styling with tables, colors, and auto-sizing
+- **9 Report Types**: Open Sales Orders, Profit & Loss, Sales by Item, AP/AR Aging, and more
+- **Scheduled Execution**: Configurable intervals (5, 15, 30, or 60 minutes)
+- **Multiple Formats**: CSV + professionally formatted Excel with corporate styling
+- **Change Detection**: Only saves timestamped snapshots when data actually changes
+- **Business Analytics**: Context7 MCP integration for insights (optional)
+- **Professional Excel**: Corporate blue headers (#4472C4), auto-sized columns, table formatting
+- **GUI Interface**: User-friendly interface with real-time status updates
+- **Diagnostics**: Built-in QuickBooks connectivity testing and troubleshooting
+
+## Supported Reports
+
+| Report                    | qbXML Type              | Date Range | Description                    |
+| ------------------------- | ----------------------- | ---------- | ------------------------------ |
+| Open Sales Orders by Item | OpenSalesOrderByItem    | No         | Current open sales orders      |
+| Profit & Loss             | ProfitAndLossStandard   | Yes        | Standard P&L statement         |
+| Profit & Loss Detail      | ProfitAndLossDetail     | Yes        | Detailed P&L with transactions |
+| Sales by Item             | SalesByItemSummary      | Yes        | Sales summary by item          |
+| Sales by Item Detail      | SalesByItemDetail       | Yes        | Detailed sales by item         |
+| Sales by Rep Detail       | SalesByRepDetail        | Yes        | Sales performance by rep       |
+| Purchase by Vendor Detail | PurchasesByVendorDetail | Yes        | Purchase analysis by vendor    |
+| AP Aging Detail           | APAgingDetail           | AsOf       | Accounts payable aging         |
+| AR Aging Detail           | ARAgingDetail           | AsOf       | Accounts receivable aging      |
 
 ## Quick Start
 
-### 1. Installation
+### Prerequisites
+
+- Windows operating system
+- QuickBooks Desktop 2019+ installed
+- QuickBooks SDK installed and registered
+- Python 3.7+
+
+### Installation
 
 ```bash
+# Clone or download the repository
+cd quickbooks-auto-reporter
+
 # Create virtual environment
 python -m venv venv
 
 # Activate virtual environment
-# On Windows:
 venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Configuration
-
-Copy `.env.example` to `.env` and configure your Odoo connection:
+### Run the Application
 
 ```bash
-cp .env.example .env
+# GUI Mode (recommended)
+python quickbooks_autoreport.py --gui
+
+# Command Line Mode
+python quickbooks_autoreport.py
+
+# Run diagnostics
+python quickbooks_autoreport.py --diagnose
 ```
 
-Edit `.env` with your Odoo credentials:
+## Usage
 
-```env
-ODOO_URL=http://your-odoo-server:8069
-ODOO_DATABASE=YourDatabase
-ODOO_USERNAME=your.email@company.com
-ODOO_PASSWORD=YourPassword
-```
+### GUI Interface
 
-### 3. Run the Exporter
+1. **Select Output Folder**: Choose where reports will be saved
+2. **Configure Date Range**: Set report date range for date-based reports
+3. **Choose Interval**: Select check interval (5, 15, 30, or 60 minutes)
+4. **Start Auto**: Begin scheduled automatic reporting
+5. **Export All Now**: Generate all reports immediately
+6. **Open Folder**: Open output directory in Windows Explorer
 
-```bash
-# Interactive mode (recommended)
-python export_orders.py
+### Status Display
 
-# Or use the module directly
-python -m quickbooks.cli
-```
+The GUI shows real-time status for each report:
 
-The script will:
-1. Prompt you to select a QuickBooks CSV file
-2. Parse the CSV and extract sales orders
-3. Connect to Odoo to enrich the data
-4. Generate Excel and JSON reports in the `output/` directory
+- Report status (Idle, Running, Success, Error)
+- Row count from last export
+- Excel generation confirmation
+- Next scheduled run time
+- Connection information
+
+### Configuration
+
+Settings are automatically saved to `~/.qb_auto_reporter_settings.json`:
+
+- Output directory preference
+- Check interval preference
+- Report date ranges
 
 ## Output Files
 
-The exporter generates two files in the `output/` directory:
+For each report type, the following files are generated:
 
-1. **Excel Report** (`QuickBooks_Sales_Orders_Report_YYYYMMDD_HHMMSS.xlsx`)
-   - **Orders_Summary**: Aggregated order totals by customer
-   - **Line_Items_Detail**: Complete line item breakdown
-   - **PL_[ProductionLine]**: Separate sheets for each production line
-   - **to_produce_Food_Sales**: Food products to produce
-   - **to_produce_Detergent_Sales**: Detergent products to produce
+### Standard Files
 
-2. **JSON Data** (`QuickBooks_Sales_Orders_Report_YYYYMMDD_HHMMSS.json`)
-   - Raw data export for integration with other systems
+- `{Report_Name}.csv` - CSV data export
+- `{Report_Name}.xlsx` - Professional Excel report
+- `{Report_Name}.hash` - Change detection hash
 
-## CSV Format Support
+### Timestamped Snapshots
 
-The exporter supports two QuickBooks CSV export formats:
+When data changes, timestamped copies are created:
 
-### Format 1: Sales Orders by Customer
-```
-Customer Name,Type,Date,Num,Memo,Amount,Open Balance
-ACME Corp,Sales Order,01/15/2025,SO-12345,DELIVER 01-20-25,1500.00,1500.00
-```
+- `{Report_Name}_YYYYMMDD_HHMMSS.csv`
+- `{Report_Name}_YYYYMMDD_HHMMSS.xlsx`
 
-### Format 2: Sales Orders by Item
-```
-Item,Type,Date,Ship,Num,Name,Qty,Qty Invoiced,Qty Pending,Amount,Open Balance
-Product A (SKU-001),Sales Order,01/15/2025,01/20/25,SO-12345,ACME Corp,100,0,100,1500.00,1500.00
-```
+### Log Files
 
-## Odoo Integration
+- `QuickBooks_Auto_Reports.log` - Main application log
+- `{report_key}_request.xml` - qbXML request log
+- `{report_key}_response.xml` - qbXML response log
 
-When Odoo is available, the exporter enriches orders with:
+## QuickBooks Integration
 
-- ✅ Product details (name, code, category)
-- ✅ Production line assignments
-- ✅ BOM (Bill of Materials) information
-- ✅ Formula names for manufactured products
-- ✅ Inventory levels and availability
-- ✅ Accurate delivery dates and ETA calculations
+### Connection Methods
 
-If Odoo is unavailable, the exporter will:
-- ⚠️  Prompt you to continue with QuickBooks data only
-- ⚠️  Mark missing fields as "Odoo info missing"
-- ⚠️  Still generate a valid Excel report
+The application attempts multiple connection strategies:
 
-## Production Line Sheets
+1. Open QuickBooks file (if available)
+2. User-selected QuickBooks file
+3. Fallback to configured company file path
 
-Orders are automatically organized by production line:
+### qbXML Versions
 
-- **Line A**: Detergent Gallon Production
-- **Line B**: Detergent 32oz Production
-- **Line D**: Detergent 5-Gallon Production
-- **Line E**: Detergent Piston/Pump Production
-- **Line F**: Detergent Manual/Bulk Production
-- **Line G**: Food Gallon Production
-- **Line H**: Food 16oz Production
-- **Line I**: Food Powder Production
-- **Line J**: Food Manual/Solid Production
-- **Line K**: Food Liquid Manual Production
-- **Line Z**: SUDOC Specialty Production
+- Primary: qbXML 16.0
+- Fallback: qbXML 13.0
+- Compatible with QuickBooks Desktop 2019+
 
-Each production line sheet includes:
-- Order date and number
-- Customer name
-- ETA date (calculated)
-- Product details
-- Quantity to produce (with conversion factors applied)
+### Authentication
+
+Uses QuickBooks SDK authentication with multiple local connection modes for maximum compatibility.
 
 ## Troubleshooting
 
-### Odoo Connection Issues
+### QuickBooks Connection Issues
 
-If you see "Odoo connection failed":
+**Symptoms**: "Cannot connect to QuickBooks Desktop"
 
-1. Verify Odoo server is running and accessible
-2. Check `.env` file has correct credentials
-3. Ensure network connectivity to Odoo server
-4. Review `logs/` directory for detailed error messages
+**Solutions**:
 
-### CSV Parsing Issues
+1. Verify QuickBooks Desktop is running
+2. Install QuickBooks SDK from Intuit Developer website
+3. Run application as Administrator
+4. Restart computer after SDK installation
+5. Close QuickBooks before running reports
 
-If CSV parsing fails:
+### Run Diagnostics
 
-1. Ensure CSV is exported from QuickBooks in supported format
-2. Check for special characters or encoding issues
-3. Try opening CSV in Excel to verify structure
-4. Review `logs/` for specific parsing errors
+```bash
+python quickbooks_autoreport.py --diagnose
+```
 
-### Missing Production Lines
+Generates:
 
-If products show "Unknown" production line:
+- `quickbooks_diagnostics.json` - Detailed diagnostic data
+- `QuickBooks_Diagnostic_Report.xlsx` - Professional diagnostic report
 
-1. Ensure `docs/product_categorization.xlsx` exists
-2. Verify product codes match between QuickBooks and Odoo
-3. Check that production line mappings are configured
+### Common Errors
+
+**COM Error -2147221005: Invalid class string**
+
+- SDK not installed or not properly registered
+- Install QuickBooks SDK
+- Run as Administrator
+- Restart computer
+
+**COM Error -2147221164: Class not registered**
+
+- SDK components not properly registered
+- Reinstall QuickBooks SDK
+- Run `regsvr32 qbxmlrp2.dll` as Administrator
+
+**Access Denied**
+
+- Run application as Administrator
+- Check QuickBooks company file permissions
+- Ensure QuickBooks is in single-user mode
+
+**File Not Found**
+
+- Verify QuickBooks installation
+- Check QB_COMPANY_FILE environment variable
+- Open company file in QuickBooks first
+
+### Log Analysis
+
+Check `QuickBooks_Auto_Reports.log` for detailed execution information with emoji indicators:
+
+- 📥 Fetching data
+- 🎯 Processing
+- 📊 Exporting
+- ✅ Success
+- ❌ Error
+
+## Environment Variables
+
+```bash
+# QuickBooks company file path (optional)
+QB_COMPANY_FILE="C:\Path\To\Company.QBW"
+```
 
 ## Project Structure
 
 ```
-quickbooks_order_exporter/
-├── quickbooks/              # Main package
-│   ├── __init__.py
-│   ├── cli.py              # Command-line interface
-│   ├── csv_reader.py       # QuickBooks CSV parser
-│   ├── odoo_enrichment.py  # Odoo integration
-│   ├── excel_export.py     # Excel report generator
-│   └── dataframe_utils.py  # Data processing utilities
-├── docs/                    # Documentation
-├── output/                  # Generated reports
-├── logs/                    # Application logs
-├── tests/                   # Test files
-├── logger.py               # Logging configuration
-├── connector.py            # Odoo connector
-├── export_orders.py        # Main entry point
-├── requirements.txt        # Python dependencies
-├── .env.example            # Environment template
-└── README.md               # This file
+quickbooks-auto-reporter/
+├── quickbooks_autoreport.py    # Main application
+├── requirements.txt            # Python dependencies
+├── requirements_exe.txt        # Dependencies for executable build
+├── QuickBooks_Auto_Reporter.spec # PyInstaller spec
+├── build_exe.py               # Executable builder
+├── test_xml_generation.py     # XML validation tests
+├── .kiro/                     # Kiro IDE configuration
+│   ├── specs/                 # Feature specifications
+│   │   └── quickbooks-continuous-polling-reporter/
+│   │       ├── requirements.md  # Feature requirements
+│   │       ├── design.md        # Technical design
+│   │       └── tasks.md         # Implementation tasks
+│   ├── settings/              # IDE settings
+│   │   └── mcp.json          # MCP server configuration
+│   └── steering/              # Development guidelines
+├── docs/                      # Documentation
+├── tests/                     # Test files
+└── README.md                  # This file
 ```
+
+## Kiro Specs
+
+This project includes comprehensive Kiro specifications for structured development:
+
+### Feature Spec: QuickBooks Continuous Polling Reporter
+
+Located in `.kiro/specs/quickbooks-continuous-polling-reporter/`
+
+**Requirements Document** (`requirements.md`)
+
+- 10 comprehensive requirements with user stories
+- EARS-format acceptance criteria
+- Covers all core functionality:
+  - QuickBooks Desktop Integration
+  - Multi-Report Data Extraction (9 report types)
+  - Scheduled Continuous Polling
+  - Change Detection and Timestamped Snapshots
+  - Multi-Format Export (CSV and Excel)
+  - GUI and CLI Interfaces
+  - Logging, Diagnostics, and Configuration
+  - Error Handling and Recovery
+
+**Design Document** (`design.md`)
+
+- High-level architecture with component diagrams
+- 10 major components with detailed interfaces
+- Data models and error handling strategies
+- Testing, security, and performance considerations
+- Deployment and extensibility planning
+
+**Implementation Tasks** (`tasks.md`)
+
+- 16 main tasks with 60+ sub-tasks
+- Each task references specific requirements
+- Incremental development roadmap
+- Test tasks marked as optional for MVP focus
+
+### Using the Specs
+
+The specs provide a complete blueprint for understanding and extending the application:
+
+1. **For New Developers**: Read requirements.md → design.md to understand the system
+2. **For Feature Development**: Reference tasks.md for implementation guidance
+3. **For Architecture Decisions**: Consult design.md for component interactions
+4. **For Testing**: Use requirements acceptance criteria as test cases
+
+### Kiro IDE Integration
+
+The project is configured with MCP (Model Context Protocol) servers for enhanced development:
+
+- **Sequential Thinking**: Complex problem-solving and planning
+- **Context7**: Up-to-date library documentation
+- **Spec Workflow**: Structured feature development
+- **Mermaid**: Diagram generation for documentation
+- **Filesystem**: Project file access
+- **Odoo**: ERP integration (optional)
+
+Configuration: `.kiro/settings/mcp.json`
 
 ## Development
 
 ### Running Tests
 
 ```bash
-# Install test dependencies
-pip install pytest pytest-cov
+# Test XML generation
+python test_xml_generation.py
 
-# Run tests
-pytest tests/
+# Run with test mode
+python quickbooks_autoreport.py --test-xml
+```
 
-# Run with coverage
-pytest tests/ --cov=quickbooks --cov-report=html
+### Building Executable
+
+```bash
+# Build standalone executable
+python build_exe.py
+
+# Or use batch file
+build_exe.bat
 ```
 
 ### Code Quality
 
-```bash
-# Format code
-black quickbooks/
+The application follows best practices:
 
-# Lint code
-flake8 quickbooks/
-
-# Type checking
-mypy quickbooks/
-```
+- Type hints for function signatures
+- Comprehensive error handling
+- Detailed logging with timestamps
+- Graceful degradation for optional features
+- User-friendly error messages
 
 ## Dependencies
 
-- **pandas**: Data manipulation and analysis
-- **numpy**: Numerical computations
-- **openpyxl**: Excel file generation
-- **requests**: HTTP client for Odoo API
-- **python-dotenv**: Environment variable management
-- **python-dateutil**: Date parsing and manipulation
+### Required
+
+- `pywin32` - QuickBooks COM integration
+- `openpyxl` - Excel file creation
+
+## Technical Architecture
+
+### Design Patterns
+
+- **Strategy Pattern**: Different report types with common interface
+- **Factory Pattern**: Report and format generation
+- **Observer Pattern**: GUI status updates
+- **Template Method**: Common export workflow with customization
+
+### Core Components
+
+- **QuickBooks Integration**: Direct qbXML API communication
+- **Report Generation**: Multi-format output with change detection
+- **Professional Formatting**: Corporate Excel styling
+- **Scheduling System**: Configurable automated execution
+
+### Error Handling
+
+Robust fallback mechanisms:
+
+- Multiple qbXML version attempts
+- Alternative query methods for Open Sales Orders
+- Graceful degradation when MCP services unavailable
+- User-friendly error messages with solutions
+
+## Comparison with Single-Report Tools
+
+| Feature        | Auto Reporter           | Single Report Tools     |
+| -------------- | ----------------------- | ----------------------- |
+| Report Types   | 9 reports               | 1 report                |
+| Output Formats | CSV + Excel             | CSV only or CSV + Excel |
+| GUI Status     | Detailed per-report     | Basic overall status    |
+| Formatting     | Corporate Excel styling | Basic or corporate      |
+| Diagnostics    | Built-in comprehensive  | Basic or none           |
 
 ## License
 
-This project is part of the MPS Calculator system.
+This application maintains compatibility with QuickBooks Desktop SDK license requirements and usage terms.
 
 ## Support
 
-For issues or questions:
-1. Check the `logs/` directory for detailed error messages
-2. Review the documentation in `docs/`
-3. Ensure all dependencies are installed correctly
-4. Verify Odoo connection settings in `.env`
+For issues:
+
+1. Run diagnostics: `python quickbooks_autoreport.py --diagnose`
+2. Check `QuickBooks_Auto_Reports.log` for detailed error messages
+3. Review qbXML request/response logs
+4. Verify QuickBooks and SDK installation
+5. Ensure QuickBooks Desktop is running and accessible
 
 ## Changelog
 
-See `docs/CHANGES_SUMMARY.md` for detailed change history.
+See `CHANGES_SUMMARY.md` for detailed change history.
+
+## Version
+
+QuickBooks Auto Reporter v1.0
+
+## Contributing
+
+When adding new report types:
+
+1. Create working XML example
+2. Add report configuration to `REPORT_CONFIGS`
+3. Update XML validation mapping
+4. Add chart recommendations
+5. Test with `test_xml_generation.py`
+
+## Future Enhancements
+
+- Additional report types (Balance Sheet, Trial Balance)
+- PDF export capabilities
+- Email notification system
+- Web dashboard interface
+- REST API endpoints
+- Webhook notifications

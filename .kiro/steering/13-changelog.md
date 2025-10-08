@@ -1,5 +1,6 @@
 ---
-inclusion: always
+inclusion: fileMatch
+fileMatchPattern: ['CHANGELOG.md', 'CHANGELOG.*', '**/CHANGELOG.*']
 ---
 
 # Changelog Format (Keep a Changelog 1.1.0)
@@ -16,6 +17,7 @@ Each `CHANGELOG.md` **MUST** include the following sections in this order:
    # Changelog
    All notable changes to this project will be documented in this file.
    ```
+
 2. **Unreleased** (always present)
 
    ```markdown
