@@ -45,6 +45,8 @@ dmypy.json
 *.swp
 *.swo
 *~
+.roo/
+.kiro/
 
 # Jupyter
 .ipynb_checkpoints/

@@ -16,6 +16,7 @@ QuickBooks Auto Reporter automates the generation of 9 different QuickBooks repo
 - **Professional Excel**: Corporate blue headers (#4472C4), auto-sized columns, table formatting
 - **GUI Interface**: User-friendly interface with real-time status updates
 - **Diagnostics**: Built-in QuickBooks connectivity testing and troubleshooting
+- **Sales Dashboard**: Interactive Streamlit dashboard for visualizing sales analytics
 
 ## Supported Reports
 
@@ -67,6 +68,9 @@ python quickbooks_autoreport.py
 
 # Run diagnostics
 python quickbooks_autoreport.py --diagnose
+
+# Sales Dashboard
+streamlit run apps/dashboard/Home.py
 ```
 
 ## Usage
@@ -97,6 +101,24 @@ Settings are automatically saved to `~/.qb_auto_reporter_settings.json`:
 - Output directory preference
 - Check interval preference
 - Report date ranges
+
+### Sales Dashboard
+
+The Sales Analytics Dashboard provides interactive visualization of sales data:
+
+1. **Launch Dashboard**: Run `streamlit run apps/dashboard/Home.py`
+2. **Select File**: Choose an Excel file from the sidebar dropdown
+3. **View Analytics**: See key metrics, top products, and weekly trends
+4. **Refresh Data**: Use manual refresh button or automatic hourly polling
+
+**Features:**
+
+- 📊 Real-time sales revenue and units metrics
+- 🏆 Top 5 products by revenue and units
+- 📈 Interactive weekly trend charts
+- 🔄 Manual and automatic data refresh
+
+See `apps/dashboard/README.md` for detailed documentation.
 
 ## Output Files
 
@@ -220,17 +242,48 @@ quickbooks-auto-reporter/
 ├── QuickBooks_Auto_Reporter.spec # PyInstaller spec
 ├── build_exe.py               # Executable builder
 ├── test_xml_generation.py     # XML validation tests
+├── apps/                      # Application interfaces
+│   └── dashboard/             # Streamlit sales dashboard
+│       ├── Home.py            # Dashboard entry point
+│       ├── README.md          # Dashboard documentation
+│       └── pages/             # Multi-page dashboard (future)
+├── src/                       # Source code
+│   └── quickbooks_autoreport/
+│       ├── dashboard/         # Dashboard modules
+│       │   ├── charts.py      # Chart generation
+│       │   ├── charts_display.py # Chart rendering
+│       │   ├── config.py      # Dashboard configuration
+│       │   ├── data_loader.py # File scanning and loading
+│       │   ├── metrics.py     # Metrics calculation
+│       │   ├── metrics_display.py # Metrics rendering
+│       │   ├── sidebar.py     # Sidebar components
+│       │   └── utils.py       # Utility functions
+│       ├── domain/            # Domain models
+│       │   └── sales_data.py  # Sales data models
+│       ├── adapters/          # External integrations
+│       ├── services/          # Business logic
+│       └── utils/             # Shared utilities
+├── tests/                     # Test files
+│   ├── integration/           # Integration tests
+│   │   ├── test_dashboard_e2e.py # Dashboard E2E tests
+│   │   ├── test_dashboard_real_data.py # Real data tests
+│   │   └── REAL_DATA_TEST_NOTE.md # Test documentation
+│   └── unit/                  # Unit tests
 ├── .kiro/                     # Kiro IDE configuration
 │   ├── specs/                 # Feature specifications
-│   │   └── quickbooks-continuous-polling-reporter/
-│   │       ├── requirements.md  # Feature requirements
-│   │       ├── design.md        # Technical design
-│   │       └── tasks.md         # Implementation tasks
+│   │   ├── quickbooks-continuous-polling-reporter/
+│   │   │   ├── requirements.md  # Feature requirements
+│   │   │   ├── design.md        # Technical design
+│   │   │   └── tasks.md         # Implementation tasks
+│   │   └── sales-dashboard/   # Sales dashboard spec
+│   │       ├── requirements.md  # Dashboard requirements
+│   │       ├── design.md        # Dashboard design
+│   │       └── tasks.md         # Dashboard tasks
 │   ├── settings/              # IDE settings
 │   │   └── mcp.json          # MCP server configuration
 │   └── steering/              # Development guidelines
 ├── docs/                      # Documentation
-├── tests/                     # Test files
+├── output/                    # Generated reports
 └── README.md                  # This file
 ```
 
@@ -271,6 +324,29 @@ Located in `.kiro/specs/quickbooks-continuous-polling-reporter/`
 - Incremental development roadmap
 - Test tasks marked as optional for MVP focus
 
+### Sales Dashboard Spec
+
+Located in `.kiro/specs/sales-dashboard/`
+
+**Requirements Document** (`requirements.md`)
+
+- 10 comprehensive requirements for sales analytics dashboard
+- User stories and EARS-format acceptance criteria
+- Covers data loading, metrics, charts, refresh, and error handling
+
+**Design Document** (`design.md`)
+
+- Component architecture with data flow diagrams
+- 8 major components (data loader, metrics calculator, chart generator, etc.)
+- Performance optimization strategies
+- Caching and polling mechanisms
+
+**Implementation Tasks** (`tasks.md`)
+
+- 13 main tasks with detailed sub-tasks
+- All tasks completed and validated
+- Comprehensive integration test coverage
+
 ### Using the Specs
 
 The specs provide a complete blueprint for understanding and extending the application:
@@ -279,6 +355,7 @@ The specs provide a complete blueprint for understanding and extending the appli
 2. **For Feature Development**: Reference tasks.md for implementation guidance
 3. **For Architecture Decisions**: Consult design.md for component interactions
 4. **For Testing**: Use requirements acceptance criteria as test cases
+5. **For Dashboard Development**: See sales-dashboard spec for analytics features
 
 ### Kiro IDE Integration
 
@@ -303,7 +380,48 @@ python test_xml_generation.py
 
 # Run with test mode
 python quickbooks_autoreport.py --test-xml
+
+# Run integration tests
+pytest tests/integration/ -v
+
+# Run dashboard E2E tests
+pytest tests/integration/test_dashboard_e2e.py -v
+
+# Run with coverage
+pytest tests/integration/ --cov=src/quickbooks_autoreport/dashboard --cov-report=html
 ```
+
+### Test Coverage
+
+The project includes comprehensive integration tests for the Sales Dashboard:
+
+**End-to-End Tests** (`tests/integration/test_dashboard_e2e.py`)
+
+- Complete workflow testing (file selection → data load → metrics display)
+- Manual and automatic refresh functionality
+- Error handling (missing files, bad data, empty files)
+- Edge cases (zero values, negative values, duplicates)
+- Multi-week and single-day data scenarios
+- Performance validation (< 3s load, < 2s calculations)
+
+**Real Data Tests** (`tests/integration/test_dashboard_real_data.py`)
+
+- Tests with actual sales files from output directory
+- Performance validation with real-world file sizes
+- Data integrity and format validation
+- Multi-file switching and consistency checks
+
+**Test Results:**
+
+- 13 passing E2E tests
+- Dashboard module coverage: 69-80%
+- All requirements validated (5.3, 6.4, 9.1, 9.2, 10.1, 10.2, 10.5)
+
+**Documentation:**
+
+- Complete testing guide: `docs/DASHBOARD_TESTING_GUIDE.md`
+- Test implementation summary: `TASK_13_IMPLEMENTATION_SUMMARY.md`
+- Real data test notes: `tests/integration/REAL_DATA_TEST_NOTE.md`
 
 ### Building Executable
 
@@ -331,6 +449,15 @@ The application follows best practices:
 
 - `pywin32` - QuickBooks COM integration
 - `openpyxl` - Excel file creation
+- `pandas` - Data manipulation and analysis
+- `streamlit` - Dashboard web interface
+- `plotly` - Interactive charts and visualizations
+
+### Development
+
+- `pytest` - Testing framework
+- `pytest-cov` - Test coverage reporting
+- `pytest-mock` - Mocking for tests
 
 ## Technical Architecture
 

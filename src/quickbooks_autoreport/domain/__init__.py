@@ -14,6 +14,7 @@ from .exceptions import (
 )
 from .report_config import ReportConfig
 from .report_result import ReportResult
+from .sales_data import DashboardState, SalesData
 from .settings import Settings, DEFAULT_OUT_DIR, DEFAULT_INTERVAL, VALID_INTERVALS
 
 __all__ = [
@@ -28,6 +29,8 @@ __all__ = [
     "ReportResult",
     "Settings",
     "DiagnosticResult",
+    "SalesData",
+    "DashboardState",
     # Constants
     "DEFAULT_OUT_DIR",
     "DEFAULT_INTERVAL",

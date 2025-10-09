@@ -1,0 +1,186 @@
+# Dashboard Update: Product Summary Sheet Integration
+
+**Date:** 2025-10-09  
+**Update:** Modified dashboard to read from 'Product Summary' sheet instead of 'Transactions' sheet
+
+## Changes Made
+
+### 1. Configuration (`src/quickbooks_autoreport/dashboard/config.py`)
+
+**Added:**
+- `SHEET_NAME = "Product Summary"` - Specifies which sheet to read from Excel files
+
+**Updated:**
+- `REQUIRED_COLUMNS` changed from:
+  ```python
+  ['Transaction_Total', 'Sales_Amount', 'Sales_Qty']
+  ```
+  to:
+  ```python
+  ['Product_Name', 'Sales_Amount', 'Sales_Qty']
+  ```
+
+### 2. Data Loader (`src/quickbooks_autoreport/dashboard/data_loader.py`)
+
+**Updated:**
+- Import `SHEET_NAME` from config
+- Modified `load_file()` to read specific sheet:
+  ```python
+  df = pd.read_excel(filepath, sheet_name=SHEET_NAME)
+  ```
+- Updated numeric columns list to include Product Summary columns:
+  ```python
+  numeric_columns = ['Sales_Amount', 'Sales_Qty', 'Net_Amount', 'Net_Qty']
+  ```
+- Updated error message to mention sheet name
+
+### 3. Metrics Calculator (`src/quickbooks_autoreport/dashboard/metrics.py`)
+
+**Updated `get_top_products_by_revenue()`:**
+- Changed default `product_column` from `'Product'` to `'Product_Name'`
+- Removed aggregation logic (data is already aggregated in Product Summary)
+- Now simply sorts and takes top N:
+  ```python
+  product_revenue = (
+      self.df[['Product_Name', 'Sales_Amount']]
+      .sort_values('Sales_Amount', ascending=False)
+      .head(top_n)
+      .reset_index(drop=True)
+  )
+  ```
+
+**Updated `get_top_products_by_units()`:**
+- Changed default `product_column` from `'Product'` to `'Product_Name'`
+- Removed aggregation logic (data is already aggregated)
+- Now simply sorts and takes top N
+
+### 4. Metrics Display (`src/quickbooks_autoreport/dashboard/metrics_display.py`)
+
+**Updated:**
+- Changed `y_column` from `'Product'` to `'Product_Name'` in both:
+  - `_render_revenue_chart()`
+  - `_render_units_chart()`
+
+### 5. Home Page (`apps/dashboard/Home.py`)
+
+**Updated:**
+- Error message now mentions 'Product Summary' sheet:
+  ```python
+  "Ensure your Excel file has a 'Product Summary' sheet with columns: 
+   Product_Name, Sales_Amount, Sales_Qty"
+  ```
+
+## Data Structure
+
+### Product Summary Sheet Columns
+
+The dashboard now expects these columns from the 'Product Summary' sheet:
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `Product_Name` | string | Product name |
+| `Sales_Amount` | float | Total sales revenue |
+| `Sales_Qty` | float | Total quantity sold |
+| `Product_Code` | string | Product code (optional) |
+| `Net_Amount` | float | Net amount (optional) |
+| `Net_Qty` | float | Net quantity (optional) |
+
+### Key Differences from Previous Version
+
+**Before (Transactions sheet):**
+- Required aggregation by product
+- Used `Product` column
+- Had transaction-level data with dates
+- Supported weekday analysis
+
+**After (Product Summary sheet):**
+- Data already aggregated
+- Uses `Product_Name` column
+- Product-level summary data
+- No date/weekday information (weekly charts won't work)
+
+## Testing
+
+### Test File Location
+- Copied `data/sales_analysis_output.xlsx` to `output/` directory
+- File contains 'Product Summary' sheet with correct structure
+
+### Expected Behavior
+
+**Working Features:**
+- ✅ File selection from dropdown
+- ✅ Data loading from 'Product Summary' sheet
+- ✅ Total Revenue metric
+- ✅ Total Units metric
+- ✅ Top 5 Products by Revenue (horizontal bar chart)
+- ✅ Top 5 Products by Units (horizontal bar chart)
+
+**Non-Working Features:**
+- ❌ Weekly trend charts (no date data in Product Summary)
+- ❌ Weekday analysis (no date data)
+
+## Usage
+
+### Running the Dashboard
+
+```bash
+streamlit run apps/dashboard/Home.py
+```
+
+### Expected Files
+
+Excel files in `output/` directory must:
+1. Have a sheet named **'Product Summary'**
+2. Contain columns: `Product_Name`, `Sales_Amount`, `Sales_Qty`
+3. Have pre-aggregated data (one row per product)
+
+### Generating Compatible Files
+
+Use the `analyze_sales_data.py` script:
+
+```bash
+python analyze_sales_data.py data/your_sales_report.csv
+```
+
+This generates an Excel file with multiple sheets including 'Product Summary'.
+
+## Benefits
+
+1. **Faster Loading**: Pre-aggregated data loads faster
+2. **Simpler Logic**: No need for groupby operations
+3. **Consistent Data**: Uses the same aggregation logic as CLI tool
+4. **Better Performance**: Smaller dataset (products vs transactions)
+
+## Limitations
+
+1. **No Time Series**: Cannot show trends over time
+2. **No Weekday Analysis**: Weekly charts will be empty
+3. **Single Snapshot**: Shows cumulative data, not time-based
+
+## Future Enhancements
+
+To restore weekly trend functionality:
+1. Add a 'Transactions' sheet option
+2. Allow user to select which sheet to analyze
+3. Show different metrics based on selected sheet type
+4. Or use a separate 'Transaction Summary' sheet with date aggregations
+
+## Compatibility
+
+**Compatible with:**
+- Files generated by `analyze_sales_data.py`
+- Excel files with 'Product Summary' sheet structure
+- Pre-aggregated product sales data
+
+**Not compatible with:**
+- Raw transaction-level data
+- Files without 'Product Summary' sheet
+- Files with different column names
+
+## Rollback
+
+To revert to transaction-level data:
+1. Change `SHEET_NAME` to `None` or sheet with transactions
+2. Update `REQUIRED_COLUMNS` back to transaction columns
+3. Restore aggregation logic in metrics methods
+4. Change `Product_Name` back to `Product`

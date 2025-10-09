@@ -1,9 +1,21 @@
 {
     "chatgpt.openOnStartup": true,
     "kiroAgent.trustedCommands": [
-        "python *",
+        "*python*",
         "Get-ChildItem *",
         "python -c \"import pandas as pd; df = pd.read_excel('output/sales_analysis_item_sales_detail_wk_41w_20251008_170004.xlsx'); print('Columns:', df.columns.tolist()); print('\\nFirst 3 rows:'); print(df.head(3)); print('\\nData types:'); print(df.dtypes)\"",
-        "git *"
+        "git *",
+        "docker *",
+        "mkdir *",
+        "python -c \"from src.quickbooks_autoreport.dashboard.data_loader import FileScanner, ExcelLoader; print('Import successful')\"",
+        "python -c \"import sys; sys.path.insert(0, 'src'); from quickbooks_autoreport.dashboard.data_loader import FileScanner, ExcelLoader; from quickbooks_autoreport.dashboard.config import OUTPUT_DIR; print('✅ FileScanner and ExcelLoader imported successfully'); fs = FileScanner(); print(f'✅ FileScanner initialized with directory: {fs.directory}'); el = ExcelLoader(); print(f'✅ ExcelLoader initialized with required columns: {el.required_columns}')\"",
+        "pip list | findstr pywin32",
+        "python -m unitest *",
+        "python *",
+        ".venv\\Scripts\\activate.ps1 ; python -m pytest tests/unit/test_charts.py -v",
+        "python -m pip list | findstr pytest",
+        "python -c \"import sys; sys.path.insert(0, 'src'); sys.path.insert(0, 'tests'); from unit.test_charts import *; print('Import successful')\"",
+        "py -m pip install pytest pandas plotly --quiet",
+        "python -c \"import pandas as pd; df = pd.read_excel('output/sales_analysis_item_sales_detail_wk_41w_20251008_170004.xlsx'); print('Columns:', list(df.columns)); print('Shape:', df.shape); print(df.head())\""
     ]
 }
