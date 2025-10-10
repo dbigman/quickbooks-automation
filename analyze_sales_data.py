@@ -21,8 +21,7 @@ import numpy as np
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 logger = logging.getLogger(__name__)
@@ -35,25 +34,24 @@ def extract_transactions(csv_path: Path) -> pd.DataFrame:
 
     # Extract product codes from Type column
     # Pattern: "A00403 (BELCA Vinagre...)" -> extract "A00403"
-    product_code_pattern = r'^([A-Z0-9\-]+)\s*\('
+    product_code_pattern = r"^([A-Z0-9\-]+)\s*\("
     raw_df["Product_Code"] = raw_df["Type"].str.extract(
         product_code_pattern, expand=False
     )
 
+    # Define excluded product codes
+    EXCLUDED_CODES = ["DMM-FREIGHT", "D-SAMPLES", "DMS-00100"]
+
     # Identify section breaks (Parts, Service, Other Charges, etc.)
     # These are rows where Type is not a transaction type and not a total
-    section_markers = [
-        "Parts", "Service", "Other Charges", "TOTAL"
-    ]
+    section_markers = ["Parts", "Service", "Other Charges", "TOTAL"]
     raw_df["Is_Section_Break"] = raw_df["Type"].isin(section_markers)
 
     # Create section groups - reset at each section break
     raw_df["Section"] = raw_df["Is_Section_Break"].cumsum()
 
     # Forward fill product codes only within each section
-    raw_df["Product_Code"] = raw_df.groupby("Section")[
-        "Product_Code"
-    ].ffill()
+    raw_df["Product_Code"] = raw_df.groupby("Section")["Product_Code"].ffill()
 
     # Filter to actual transaction rows
     valid_types = [
@@ -66,26 +64,18 @@ def extract_transactions(csv_path: Path) -> pd.DataFrame:
     transactions = raw_df[raw_df["Type"].isin(valid_types)].copy()
 
     # Map product codes to transaction rows
-    transactions["Product_Code"] = transactions.index.map(
-        raw_df["Product_Code"]
-    )
+    transactions["Product_Code"] = transactions.index.map(raw_df["Product_Code"])
 
     # Convert data types
     transactions["Date"] = pd.to_datetime(
         transactions["Date"], format="%m/%d/%Y", errors="coerce"
     )
-    transactions["Qty"] = pd.to_numeric(
-        transactions["Qty"], errors="coerce"
-    )
+    transactions["Qty"] = pd.to_numeric(transactions["Qty"], errors="coerce")
     transactions["Sales Price"] = pd.to_numeric(
         transactions["Sales Price"], errors="coerce"
     )
-    transactions["Amount"] = pd.to_numeric(
-        transactions["Amount"], errors="coerce"
-    )
-    transactions["Balance"] = pd.to_numeric(
-        transactions["Balance"], errors="coerce"
-    )
+    transactions["Amount"] = pd.to_numeric(transactions["Amount"], errors="coerce")
+    transactions["Balance"] = pd.to_numeric(transactions["Balance"], errors="coerce")
 
     # Clean up Memo field (Product Name per Gasco convention)
     transactions["Product_Name"] = transactions["Memo"].str.strip()
@@ -103,7 +93,20 @@ def extract_transactions(csv_path: Path) -> pd.DataFrame:
     columns_to_drop = ["Job", "Is_Section_Break", "Section"]
     transactions = transactions.drop(
         columns=[col for col in columns_to_drop if col in transactions.columns],
-        errors="ignore"
+        errors="ignore",
+    )
+
+    # Filter out excluded product codes and blank codes
+    EXCLUDED_CODES = ["DMM-FREIGHT", "D-SAMPLES", "DMS-00100"]
+    initial_count = len(transactions)
+    transactions = transactions[
+        ~transactions["Product_Code"].isin(EXCLUDED_CODES)
+        & transactions["Product_Code"].notna()
+        & (transactions["Product_Code"].str.strip() != "")
+    ]
+    filtered_count = initial_count - len(transactions)
+    logger.info(
+        f"🔍 Filtered out {filtered_count} rows with excluded/blank product codes"
     )
 
     logger.info(f"✅ Extracted {len(transactions)} transaction lines")
@@ -113,40 +116,36 @@ def extract_transactions(csv_path: Path) -> pd.DataFrame:
 def create_backordered_items(transactions: pd.DataFrame) -> pd.DataFrame:
     """
     Create backordered items report.
-    
+
     Items with Qty=0 are considered backordered.
     One row per invoice number.
-    
+
     Returns:
         DataFrame with backordered items
     """
     logger.info("📊 Creating backordered items report")
-    
+
     # Filter transactions with Qty = 0 (backordered)
     backordered = transactions[transactions["Qty"] == 0].copy()
-    
+
     if len(backordered) == 0:
         logger.info("✅ No backordered items found")
-        return pd.DataFrame(
-            columns=["Product_Code", "Product_Name", "Num", "Customer"]
-        )
-    
+        return pd.DataFrame(columns=["Product_Code", "Product_Name", "Num", "Customer"])
+
     # Select and rename columns
     backordered_report = backordered[
         ["Product_Code", "Product_Name", "Num", "Customer"]
     ].copy()
-    
+
     # Rename Num to Invoice_Number for clarity
-    backordered_report = backordered_report.rename(
-        columns={"Num": "Invoice_Number"}
-    )
-    
+    backordered_report = backordered_report.rename(columns={"Num": "Invoice_Number"})
+
     # Remove duplicates (one row per invoice number + product)
     backordered_report = backordered_report.drop_duplicates()
-    
+
     # Sort by Invoice_Number
     backordered_report = backordered_report.sort_values("Invoice_Number")
-    
+
     logger.info(f"✅ Found {len(backordered_report)} backordered items")
     return backordered_report
 
@@ -160,54 +159,68 @@ def create_product_summary(transactions: pd.DataFrame) -> pd.DataFrame:
     returns = transactions[transactions["Is_Return"]].copy()
 
     # Aggregate sales (include Product_Code)
-    sales_agg = sales.groupby("Product_Name").agg({
-        "Qty": "sum",
-        "Amount": "sum",
-        "Num": "count",
-        "Product_Code": lambda x: (
-            x.dropna().iloc[0] if len(x.dropna()) > 0 else ""
+    sales_agg = (
+        sales.groupby("Product_Name")
+        .agg(
+            {
+                "Qty": "sum",
+                "Amount": "sum",
+                "Num": "count",
+                "Product_Code": lambda x: (
+                    x.dropna().iloc[0] if len(x.dropna()) > 0 else ""
+                ),
+            }
         )
-    }).rename(columns={
-        "Qty": "Sales_Qty",
-        "Amount": "Sales_Amount",
-        "Num": "Sales_Transactions"
-    })
+        .rename(
+            columns={
+                "Qty": "Sales_Qty",
+                "Amount": "Sales_Amount",
+                "Num": "Sales_Transactions",
+            }
+        )
+    )
 
     # Aggregate returns (convert to positive)
-    returns_agg = returns.groupby("Product_Name").agg({
-        "Qty": lambda x: abs(x.sum()),
-        "Amount": lambda x: abs(x.sum()),
-        "Num": "count"
-    }).rename(columns={
-        "Qty": "Return_Qty",
-        "Amount": "Return_Amount",
-        "Num": "Return_Transactions"
-    })
+    returns_agg = (
+        returns.groupby("Product_Name")
+        .agg(
+            {
+                "Qty": lambda x: abs(x.sum()),
+                "Amount": lambda x: abs(x.sum()),
+                "Num": "count",
+            }
+        )
+        .rename(
+            columns={
+                "Qty": "Return_Qty",
+                "Amount": "Return_Amount",
+                "Num": "Return_Transactions",
+            }
+        )
+    )
 
     # Combine
     summary = sales_agg.join(returns_agg, how="outer").fillna(0)
 
     # Calculate net values
     summary["Net_Qty"] = summary["Sales_Qty"] - summary["Return_Qty"]
-    summary["Net_Amount"] = (
-        summary["Sales_Amount"] - summary["Return_Amount"]
-    )
+    summary["Net_Amount"] = summary["Sales_Amount"] - summary["Return_Amount"]
 
     # Calculate total quantity (absolute sum of all transactions)
     summary["Total_Qty"] = summary["Sales_Qty"] + summary["Return_Qty"]
 
     # Calculate average unit price
     summary["Avg_Unit_Price"] = np.where(
-        summary["Net_Qty"] != 0,
-        summary["Net_Amount"] / summary["Net_Qty"],
-        np.nan
+        summary["Net_Qty"] != 0, summary["Net_Amount"] / summary["Net_Qty"], np.nan
     )
 
     # Filter out products with no activity (all quantities are 0)
     summary = summary[
-        ~((summary["Sales_Qty"] == 0) & 
-          (summary["Return_Qty"] == 0) & 
-          (summary["Net_Qty"] == 0))
+        ~(
+            (summary["Sales_Qty"] == 0)
+            & (summary["Return_Qty"] == 0)
+            & (summary["Net_Qty"] == 0)
+        )
     ]
 
     # Sort by net amount descending
@@ -217,24 +230,30 @@ def create_product_summary(transactions: pd.DataFrame) -> pd.DataFrame:
     return summary.reset_index()
 
 
-def create_customer_product_matrix(
-    transactions: pd.DataFrame
-) -> pd.DataFrame:
+def create_customer_product_matrix(transactions: pd.DataFrame) -> pd.DataFrame:
     """Create customer-product matrix."""
     logger.info("📊 Creating customer-product matrix")
 
-    matrix = transactions.groupby(["Customer", "Product_Name"]).agg({
-        "Qty": "sum",
-        "Amount": "sum",
-        "Num": "count",
-        "Product_Code": lambda x: (
-            x.dropna().iloc[0] if len(x.dropna()) > 0 else ""
+    matrix = (
+        transactions.groupby(["Customer", "Product_Name"])
+        .agg(
+            {
+                "Qty": "sum",
+                "Amount": "sum",
+                "Num": "count",
+                "Product_Code": lambda x: (
+                    x.dropna().iloc[0] if len(x.dropna()) > 0 else ""
+                ),
+            }
         )
-    }).rename(columns={
-        "Qty": "Total_Qty",
-        "Amount": "Total_Amount",
-        "Num": "Transaction_Count"
-    })
+        .rename(
+            columns={
+                "Qty": "Total_Qty",
+                "Amount": "Total_Amount",
+                "Num": "Transaction_Count",
+            }
+        )
+    )
 
     matrix["Avg_Transaction_Amount"] = (
         matrix["Total_Amount"] / matrix["Transaction_Count"]
@@ -248,13 +267,12 @@ def create_customer_product_matrix(
 
 def get_top_customers(transactions: pd.DataFrame, n: int = 10):
     """Get top N customers by total sales."""
-    customer_summary = transactions.groupby("Customer").agg({
-        "Amount": "sum",
-        "Num": "count"
-    }).rename(columns={
-        "Amount": "Total_Amount",
-        "Num": "Transaction_Count"
-    }).sort_values("Total_Amount", ascending=False)
+    customer_summary = (
+        transactions.groupby("Customer")
+        .agg({"Amount": "sum", "Num": "count"})
+        .rename(columns={"Amount": "Total_Amount", "Num": "Transaction_Count"})
+        .sort_values("Total_Amount", ascending=False)
+    )
 
     return customer_summary.head(n).reset_index()
 
@@ -272,24 +290,18 @@ def create_transaction_summary(transactions: pd.DataFrame) -> pd.DataFrame:
     logger.info("📊 Creating transaction summary")
 
     # Group by transaction number
-    transaction_summary = transactions.groupby("Num").agg({
-        "Date": "first",
-        "Type": "first",
-        "Name": "first",
-        "Amount": "sum"
-    }).rename(columns={
-        "Name": "Customer",
-        "Amount": "Transaction_Total"
-    })
+    transaction_summary = (
+        transactions.groupby("Num")
+        .agg({"Date": "first", "Type": "first", "Name": "first", "Amount": "sum"})
+        .rename(columns={"Name": "Customer", "Amount": "Transaction_Total"})
+    )
 
     # Sort by date and transaction number
     transaction_summary = transaction_summary.sort_values(
         ["Date", "Num"], ascending=[True, True]
     )
 
-    logger.info(
-        f"✅ Created summary for {len(transaction_summary)} transactions"
-    )
+    logger.info(f"✅ Created summary for {len(transaction_summary)} transactions")
     return transaction_summary.reset_index()
 
 
@@ -303,22 +315,21 @@ Examples:
   python analyze_sales_data.py data/report.csv
   python analyze_sales_data.py data/report.csv --output results
   python analyze_sales_data.py data/report.csv -o C:/Reports
-        """
+        """,
     )
-    
+
     parser.add_argument(
-        "input_file",
-        type=str,
-        help="Path to QuickBooks Item Sales Detail CSV file"
+        "input_file", type=str, help="Path to QuickBooks Item Sales Detail CSV file"
     )
-    
+
     parser.add_argument(
-        "-o", "--output",
+        "-o",
+        "--output",
         type=str,
         default="output",
-        help="Output directory for Excel file (default: output)"
+        help="Output directory for Excel file (default: output)",
     )
-    
+
     return parser.parse_args()
 
 
@@ -326,7 +337,7 @@ def main():
     """Extract and display sales data analysis."""
     # Parse command line arguments
     args = parse_arguments()
-    
+
     csv_path = Path(args.input_file)
     output_dir = Path(args.output)
 
@@ -335,8 +346,8 @@ def main():
         logger.error(f"❌ CSV file not found: {csv_path}")
         logger.error(f"   Please check the file path and try again.")
         sys.exit(1)
-    
-    if not csv_path.suffix.lower() == '.csv':
+
+    if not csv_path.suffix.lower() == ".csv":
         logger.error(f"❌ Input file must be a CSV file: {csv_path}")
         sys.exit(1)
 
@@ -374,7 +385,7 @@ def main():
         "Total_Qty",
         "Net_Qty",
         "Net_Amount",
-        "Avg_Unit_Price"
+        "Avg_Unit_Price",
     ]
     print(product_summary.head(10)[cols].to_string(index=False))
 
@@ -419,11 +430,11 @@ def main():
     # Save to Excel with timestamp
     output_dir.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
+
     # Use input filename in output
     input_stem = csv_path.stem.replace(" ", "_")
     output_path = output_dir / f"sales_analysis_{input_stem}_{timestamp}.xlsx"
-    
+
     logger.info(f"\n📊 Saving all DataFrames to {output_path}")
 
     # Filter transactions for output: remove rows with Qty == 0
@@ -440,21 +451,13 @@ def main():
     logger.info("📋 Added column aliases for dashboard compatibility")
 
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
-        transactions_output.to_excel(
-            writer, sheet_name="Transactions", index=False
-        )
-        product_summary.to_excel(
-            writer, sheet_name="Product Summary", index=False
-        )
-        customer_product.to_excel(
-            writer, sheet_name="Customer-Product", index=False
-        )
+        transactions_output.to_excel(writer, sheet_name="Transactions", index=False)
+        product_summary.to_excel(writer, sheet_name="Product Summary", index=False)
+        customer_product.to_excel(writer, sheet_name="Customer-Product", index=False)
         transaction_summary.to_excel(
             writer, sheet_name="Transaction Summary", index=False
         )
-        backordered_items.to_excel(
-            writer, sheet_name="Backordered", index=False
-        )
+        backordered_items.to_excel(writer, sheet_name="Backordered", index=False)
 
     logger.info(f"✅ Analysis complete! Output saved to {output_path}")
 

@@ -1,0 +1,405 @@
+"Type","Date","Num","Memo","Name","Qty","Sales Price","Amount","Balance"
+"Parts",,,,,,,,""
+"A00100 (CHULERIA EN POTE Original 12/5.5 oz.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10815","CHULERIA EN POTE Original 12/5.5 oz.","Monte Adentro Corp",10,12.00,120.00,120.00
+"Total A00100 (CHULERIA EN POTE Original 12/5.5 oz.)",,,,,10,,120.00,120.00
+"A00101 (CHULERIA EN POTE Spicy 12/5.5 oz)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10815","CHULERIA EN POTE Spicy 12/5.5 oz","Monte Adentro Corp",10,12.00,120.00,120.00
+"Total A00101 (CHULERIA EN POTE Spicy 12/5.5 oz)",,,,,10,,120.00,120.00
+"A00102 (CHULERIA EN POTE Criollo 12/7 oz.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10815","CHULERIA EN POTE Criollo 12/7 oz.","Monte Adentro Corp",10,9.00,90.00,90.00
+"Total A00102 (CHULERIA EN POTE Criollo 12/7 oz.)",,,,,10,,90.00,90.00
+"A00400 (BELCA  Adobo Criollo Sin Pimienta 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10813","BELCA  Adobo Criollo Sin Pimienta 4/1 gal.","Mister Price, Mayagüez",0,24.50,0.00,0.00
+"Total A00400 (BELCA  Adobo Criollo Sin Pimienta 4/1 gal.)",,,,,0,,0.00,0.00
+"A00401 (BELCA Salsa Soya 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10813","BELCA Salsa Soya 4/1 gal.","Mister Price, Mayagüez",48,25.38,1218.24,1218.24
+"Total A00401 (BELCA Salsa Soya 4/1 gal.)",,,,,48,,1218.24,1218.24
+"A00402 (BELCA  Adobo Criollo Con Pimienta 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10813","BELCA  Adobo Criollo Con Pimienta 4/1 gal.","Mister Price, Mayagüez",23,24.50,563.50,563.50
+"Total A00402 (BELCA  Adobo Criollo Con Pimienta 4/1 gal.)",,,,,23,,563.50,563.50
+"A00403 (BELCA Vinagre Imitación Blanco 4/1 gal.)",,,,,,,,""
+"Credit Memo","10/06/2025","CR25-0536","BELCA Vinagre Imitación Blanco 4/1 gal.","Mister Price, Mayagüez",-109,11.31,-1232.79,-1232.79
+"Total A00403 (BELCA Vinagre Imitación Blanco 4/1 gal.)",,,,,-109,,-1232.79,-1232.79
+"A00602 (GASCÓ Premium White Distilled Vinegar 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10785","GASCÓ Premium White Distilled Vinegar 4/1 gal.","Mays Ochoa Chemical Company",100,13.65,1365.00,1365.00
+"Invoice","10/06/2025","INV25-10786","GASCÓ Premium White Distilled Vinegar 4/1 gal.","Mays Ochoa Chemical Company",66,13.65,900.90,2265.90
+"Total A00602 (GASCÓ Premium White Distilled Vinegar 4/1 gal.)",,,,,166,,2265.90,2265.90
+"A00604 (GASCÓ Vinagre Imitación Blanco 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","GASCÓ Vinagre Imitación Blanco 4/1 gal.","Méndez & Company",0,13.48,0.00,0.00
+"Invoice","10/08/2025","INV25-10807","GASCÓ Vinagre Imitación Blanco 4/1 gal.","Wah-Mey Enterprises, Inc.",117,13.48,1577.16,1577.16
+"Invoice","10/09/2025","INV25-10823","GASCÓ Vinagre Imitación Blanco 4/1 gal.","Méndez & Company",0,13.48,0.00,1577.16
+"Total A00604 (GASCÓ Vinagre Imitación Blanco 4/1 gal.)",,,,,117,,1577.16,1577.16
+"A00605 (GASCÓ Salsa Soya 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10785","GASCÓ Salsa Soya 4/1 gal.","Mays Ochoa Chemical Company",23,23.07,530.61,530.61
+"Total A00605 (GASCÓ Salsa Soya 4/1 gal.)",,,,,23,,530.61,530.61
+"A00607 (GASCÓ Vainilla Imitación Concentrada Negra 55 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10817","GASCÓ Vainilla Imitación Concentrada Negra 55 gals.","Renaissance Products Corporation, Heredia",1,377.72,377.72,377.72
+"Total A00607 (GASCÓ Vainilla Imitación Concentrada Negra 55 gals.)",,,,,1,,377.72,377.72
+"A00609 (GASCÓ Vainilla Flavor 4/1 gal.)",,,,,,,,""
+"Credit Memo","10/06/2025","CR25-0535","GASCÓ Vainilla Flavor 4/1 gal.","Sánchez Food Sales",-46,21.88,-1006.48,-1006.48
+"Invoice","10/06/2025","INV25-10784","GASCÓ Vainilla Flavor 4/1 gal.","José Santiago, Inc.",27,26.48,714.96,-291.52
+"Invoice","10/08/2025","INV25-10811","GASCÓ Vainilla Flavor 4/1 gal.","Ballester Hermanos",36,24.07,866.52,575.00
+"Invoice","10/10/2025","INV25-10838","GASCÓ Vainilla Flavor 4/1 gal.","Diego Vega Crespo",8,26.48,211.84,786.84
+"Invoice","10/10/2025","INV25-10850","GASCÓ Vainilla Flavor 4/1 gal.","Sánchez Food Sales",96,23.88,2292.48,3079.32
+"Total A00609 (GASCÓ Vainilla Flavor 4/1 gal.)",,,,,121,,3079.32,3079.32
+"A00610 (GASCÓ Sazón con Culantro y Achiote 6/32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","GASCÓ Sazón con Culantro y Achiote 6/32 oz.","Méndez & Company",0,39.86,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","GASCÓ Sazón con Culantro y Achiote 6/32 oz.","Méndez & Company",0,39.86,0.00,0.00
+"Total A00610 (GASCÓ Sazón con Culantro y Achiote 6/32 oz.)",,,,,0,,0.00,0.00
+"A00611 (GASCÓ Adobo Criollo Con Pimienta 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10809","GASCÓ Adobo Criollo Con Pimienta 4/1 gal.","Walmart Stores, Inc.",4,22.27,89.08,89.08
+"Invoice","10/10/2025","INV25-10850","GASCÓ Adobo Criollo Con Pimienta 4/1 gal.","Sánchez Food Sales",30,24.50,735.00,824.08
+"Total A00611 (GASCÓ Adobo Criollo Con Pimienta 4/1 gal.)",,,,,34,,824.08,824.08
+"A00612 (GASCÓ Adobo Criollo Sin Pimienta 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10784","GASCÓ Adobo Criollo Sin Pimienta 4/1 gal.","José Santiago, Inc.",39,24.50,955.50,955.50
+"Invoice","10/10/2025","INV25-10850","GASCÓ Adobo Criollo Sin Pimienta 4/1 gal.","Sánchez Food Sales",20,24.50,490.00,1445.50
+"Total A00612 (GASCÓ Adobo Criollo Sin Pimienta 4/1 gal.)",,,,,59,,1445.50,1445.50
+"A00614 (GASCÓ  Almond Emulsion 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10802","Gascó Almond Emulsion 4/1 gal.","Edgardo Echevarria",0,68.48,0.00,0.00
+"Total A00614 (GASCÓ  Almond Emulsion 4/1 gal.)",,,,,0,,0.00,0.00
+"A00626 (GASCÓ Golden Egg 12/32 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10786","GASCÓ Golden Egg 12/32 oz.","Mays Ochoa Chemical Company",0,30.73,0.00,0.00
+"Total A00626 (GASCÓ Golden Egg 12/32 oz.)",,,,,0,,0.00,0.00
+"A00649 (GASCÓ Vainilla Imitación Concentrada Blanca 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10802","Gascó Vainilla Imitación Concentrada Blanca 4/1 gal.","Edgardo Echevarria",1,34.49,34.49,34.49
+"Total A00649 (GASCÓ Vainilla Imitación Concentrada Blanca 4/1 gal.)",,,,,1,,34.49,34.49
+"A00653 (GASCÓ Vainilla Imitación Concentrada Negra 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10785","GASCÓ Vainilla Imitación Concentrada Negra 4/1 gal.","Mays Ochoa Chemical Company",10,30.60,306.00,306.00
+"Invoice","10/08/2025","INV25-10802","Gascó Vainilla Imitación Concentrada Negra 4/1 gal.","Edgardo Echevarria",8,34.49,275.92,581.92
+"Total A00653 (GASCÓ Vainilla Imitación Concentrada Negra 4/1 gal.)",,,,,18,,581.92,581.92
+"A00710 (GASCÓ Adobo Con Pimienta 50 lbs. NO MSG)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10799","GASCÓ Adobo Con Pimienta 50 lbs. NO MSG","Hector Sullivan, Inc.",15,27.89,418.35,418.35
+"Total A00710 (GASCÓ Adobo Con Pimienta 50 lbs. NO MSG)",,,,,15,,418.35,418.35
+"A00769 (HOLA Sazón con Culantro y Achiote 12/32oz)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10830","HOLA Sazón con Culantro y Achiote 12/32oz (5 PALETAS)","AZ Foods Corp.",210,44.28,9298.80,9298.80
+"Invoice","10/10/2025","OUT-14971","HOLA Sazón con Culantro y Achiote 12/32oz","AZ Foods Corp.",210,0.00,0.00,9298.80
+"Total A00769 (HOLA Sazón con Culantro y Achiote 12/32oz)",,,,,420,,9298.80,9298.80
+"A00789 (HOLA  Adobo Less Sodium 35 oz.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10830","HOLA  Adobo Less Sodium 35 oz.( 5 PALETAS)","AZ Foods Corp.",0,24.00,0.00,0.00
+"Total A00789 (HOLA  Adobo Less Sodium 35 oz.)",,,,,0,,0.00,0.00
+"A00790 (HOLA Adobo All-Purpose Seasoning No Pepper 7 Lb.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10831","HOLA Adobo All-Purpose Seasoning No Pepper 7 Lb.","AZ Foods Corp.",70,22.60,1582.00,1582.00
+"Total A00790 (HOLA Adobo All-Purpose Seasoning No Pepper 7 Lb.)",,,,,70,,1582.00,1582.00
+"A00850 (GOURMET Adobo Criollo Con Pimienta 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10795","GOURMET Adobo Criollo Con Pimienta 4/1 gal.","Union de Mayoristas Coop",19,24.50,465.50,465.50
+"Total A00850 (GOURMET Adobo Criollo Con Pimienta 4/1 gal.)",,,,,19,,465.50,465.50
+"A00853 (GOURMET Sazon con Culantro y Achiote 6/32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10795","GOURMET Sazon con Culantro y Achiote 6/32 oz.","Union de Mayoristas Coop",30,39.86,1195.80,1195.80
+"Total A00853 (GOURMET Sazon con Culantro y Achiote 6/32 oz.)",,,,,30,,1195.80,1195.80
+"A00854 (EN LA MADRE ALL SEASONING con pimienta 1 lb.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10804","EN LA MADRE ALL SEASONING con pimienta 1 lb.","En La Madre",292,1.99,581.08,581.08
+"Total A00854 (EN LA MADRE ALL SEASONING con pimienta 1 lb.)",,,,,292,,581.08,581.08
+"A00856 (EN LA MADRE ALL SEASONING con pimienta 0.5 lb.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10804","EN LA MADRE ALL SEASONING con pimienta 0.5 lb.","En La Madre",0,1.09,0.00,0.00
+"Total A00856 (EN LA MADRE ALL SEASONING con pimienta 0.5 lb.)",,,,,0,,0.00,0.00
+"A00857 (EN LA MADRE ALL SEASONING sin pimienta 0.5 lb.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10804","EN LA MADRE ALL SEASONING sin pimienta 0.5 lb.","En La Madre",188,1.09,204.92,204.92
+"Total A00857 (EN LA MADRE ALL SEASONING sin pimienta 0.5 lb.)",,,,,188,,204.92,204.92
+"A00900 (GREAT VALUE Distilled White Vinegar 24/16 oz.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10809","GREAT VALUE Distilled White Vinegar 24/16 oz.","Walmart Stores, Inc.",71,12.74,904.54,904.54
+"Total A00900 (GREAT VALUE Distilled White Vinegar 24/16 oz.)",,,,,71,,904.54,904.54
+"A00902 (GREAT VALUE Distilled Gold Vinegar 24/16 oz..)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10809","GREAT VALUE Distilled Gold Vinegar 24/16 oz..","Walmart Stores, Inc.",15,12.74,191.10,191.10
+"Total A00902 (GREAT VALUE Distilled Gold Vinegar 24/16 oz..)",,,,,15,,191.10,191.10
+"D-SAMPLES (Muestras)",,,,,,,,""
+"Invoice","10/07/2025","OUT-14926","ECO CLEAN DISHWASHING LIQUID(VARIACION DE COLOR TRABAJADO)","Prime Lab LLC",1,0.00,0.00,0.00
+"Total D-SAMPLES (Muestras)",,,,,1,,0.00,0.00
+"D10003 (GASCÓ Antibacterial Hand Soap 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10777","GASCÓ Antibacterial Hand Soap 4/1 gal.","Colegio Aguadeño San Francisco de Asis",34,17.03,579.02,579.02
+"Invoice","10/08/2025","INV25-10813","GASCÓ Antibacterial Hand Soap 4/1 gal.","Mister Price, Mayagüez",0,18.51,0.00,579.02
+"Invoice","10/09/2025","INV25-10820","GASCÓ Antibacterial Hand Soap 4/1 gal.","Méndez & Company",0,32.07,0.00,579.02
+"Invoice","10/09/2025","INV25-10827","GASCÓ Antibacterial Hand Soap 4/1 gal.","Ultra Clean",0,18.14,0.00,579.02
+"Invoice","10/09/2025","INV25-10829","GASCÓ Antibacterial Hand Soap 4/1 gal.","Freshmart",2,34.20,68.40,647.42
+"Invoice","10/10/2025","INV25-10851","GASCÓ Antibacterial Hand Soap 4/1 gal.","Prime Lab LLC",0,17.58,0.00,647.42
+"Total D10003 (GASCÓ Antibacterial Hand Soap 4/1 gal.)",,,,,36,,647.42,647.42
+"D10005 (GASCÓ LORE Concentrated Detergent Pots & Pans 4/1 gal.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10832","GASCÓ LORE Concentrated Detergent Pots & Pans 4/1 gal.","Vitaltek, LLC.",40,21.67,866.80,866.80
+"Invoice","10/09/2025","INV25-10835","GASCÓ LORE Concentrated Detergent Pots & Pans 4/1 gal.","Steps 4 Success",8,23.00,184.00,1050.80
+"Invoice","10/10/2025","INV25-10841","GASCÓ LORE Concentrated Detergent Pots & Pans 4/1 gal.","Elia De Jesus Ruiz",1,18.00,18.00,1068.80
+"Total D10005 (GASCÓ LORE Concentrated Detergent Pots & Pans 4/1 gal.)",,,,,49,,1068.80,1068.80
+"D10006 (GASCÓ LORE Concentrated Detergent Pots & Pans 5 gals.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10808","GASCÓ LORE Concentrated Detergent Pots & Pans 5 gals.","La Familia Food Service",30,22.78,683.40,683.40
+"Total D10006 (GASCÓ LORE Concentrated Detergent Pots & Pans 5 gals.)",,,,,30,,683.40,683.40
+"D10040 (GASCÓ Quaternary Ammonia Sanitizer 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10812","GASCÓ Quaternary Ammonia Sanitizer 4/1 gal.","Germinados Campo Juliana, LLC.",8,49.88,399.04,399.04
+"Invoice","10/09/2025","INV25-10832","GASCÓ Quaternary Ammonia Sanitizer 4/1 gal.","Vitaltek, LLC.",15,58.71,880.65,1279.69
+"Total D10040 (GASCÓ Quaternary Ammonia Sanitizer 4/1 gal.)",,,,,23,,1279.69,1279.69
+"D10041 (GASCÓ Quaternary Ammonia Sanitizer 5 gals.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10797","GASCÓ Quaternary Ammonia Sanitizer 5 gals.","Méndez & Company",0,66.70,0.00,0.00
+"Invoice","10/09/2025","INV25-10820","GASCÓ Quaternary Ammonia Sanitizer 5 gals.","Méndez & Company",0,66.70,0.00,0.00
+"Total D10041 (GASCÓ Quaternary Ammonia Sanitizer 5 gals.)",,,,,0,,0.00,0.00
+"D10058 (GASCÓ Multipurpose Cleaner Lemon  4/1 gal.)",,,,,,,,""
+"Invoice","10/10/2025","INV25-10845","GASCÓ Multipurpose Cleaner Lemon  4/1 gal.","Jacquelyn Santiago",2,12.95,25.90,25.90
+"Invoice","10/10/2025","INV25-10848","GASCÓ Multipurpose Cleaner Lemon  4/1 gal.","Damaris Chaparro",1,12.95,12.95,38.85
+"Total D10058 (GASCÓ Multipurpose Cleaner Lemon  4/1 gal.)",,,,,3,,38.85,38.85
+"D10065 (GASCÓ Super Stripper 4/1 gal.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10827","GASCÓ Super Stripper 4/1 gal.","Ultra Clean",1,23.55,23.55,23.55
+"Total D10065 (GASCÓ Super Stripper 4/1 gal.)",,,,,1,,23.55,23.55
+"D10068 (GASCÓ RTU Disinfectant 12/32 oz.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10827","GASCÓ RTU Disinfectant 12/32 oz.","Ultra Clean",1,24.77,24.77,24.77
+"Invoice","10/09/2025","INV25-10832","GASCÓ RTU Disinfectant 12/32 oz.","Vitaltek, LLC.",20,25.00,500.00,524.77
+"Total D10068 (GASCÓ RTU Disinfectant 12/32 oz.)",,,,,21,,524.77,524.77
+"D10078 (GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10777","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.","Colegio Aguadeño San Francisco de Asis",0,56.00,0.00,0.00
+"Invoice","10/09/2025","INV25-10821","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.","Puerto Rico Floors Services & Supplies",12,64.92,779.04,779.04
+"Invoice","10/09/2025","INV25-10825","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.(27 AGOSTO)","Stryker Puerto Rico LTD Corp",8,64.92,519.36,1298.40
+"Invoice","10/09/2025","INV25-10825","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.(22 OCTUBRE)","Stryker Puerto Rico LTD Corp",8,64.92,519.36,1817.76
+"Invoice","10/09/2025","INV25-10834","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.","Vitaltek, LLC.",10,55.59,555.90,2373.66
+"Invoice","10/09/2025","INV25-10836","GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.","Steps 4 Success",6,49.62,297.72,2671.38
+"Total D10078 (GASCÓ Instant Hand Sanitizer 70% alcohol 4/1 gal.)",,,,,44,,2671.38,2671.38
+"D10080 (GASCÓ Toilet Bowl Cleaner Acid 12/32 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10776","GASCÓ Toilet Bowl Cleaner Acid 12/32 oz.","Parador Boquemar, INC.",6,25.99,155.94,155.94
+"Invoice","10/09/2025","INV25-10828","GASCÓ Toilet Bowl Cleaner Acid 12/32 oz.","Parador Boquemar, INC.",0,25.99,0.00,155.94
+"Total D10080 (GASCÓ Toilet Bowl Cleaner Acid 12/32 oz.)",,,,,6,,155.94,155.94
+"D10106 (GASCÓ Drain Opener 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10776","GASCÓ Drain Opener 4/1 gal.","Parador Boquemar, INC.",1,32.00,32.00,32.00
+"Invoice","10/09/2025","INV25-10828","GASCÓ Drain Opener 4/1 gal.","Parador Boquemar, INC.",5,32.00,160.00,192.00
+"Total D10106 (GASCÓ Drain Opener 4/1 gal.)",,,,,6,,192.00,192.00
+"D10107 (GASCÓ Drain Opener 12/32 oz.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10824","GASCÓ Drain Opener 12/32 oz.","Joumeilyng Mena",1,20.10,20.10,20.10
+"Total D10107 (GASCÓ Drain Opener 12/32 oz.)",,,,,1,,20.10,20.10
+"D11024 (ECO CLEAN Dishwashing Liquid 5 gals.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10813","ECO CLEAN Dishwashing Liquid 5 gals.","Mister Price, Mayagüez",72,18.56,1336.32,1336.32
+"Total D11024 (ECO CLEAN Dishwashing Liquid 5 gals.)",,,,,72,,1336.32,1336.32
+"D11045 (ECO CLEAN Bath & Tile Cleaner and Disinfectant 12/32 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10776","ECO CLEAN Bath & Tile Cleaner and Disinfectant 12/32 oz.","Parador Boquemar, INC.",6,25.98,155.88,155.88
+"Invoice","10/09/2025","INV25-10828","ECO CLEAN Bath & Tile Cleaner and Disinfectant 12/32 oz.","Parador Boquemar, INC.",0,25.98,0.00,155.88
+"Total D11045 (ECO CLEAN Bath & Tile Cleaner and Disinfectant 12/32 oz.)",,,,,6,,155.88,155.88
+"D11050 (ECO CLEAN Heavy Duty Degreaser 4/1 gal.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10829","ECO CLEAN Heavy Duty Degreaser 4/1 gal.","Freshmart",10,48.00,480.00,480.00
+"Total D11050 (ECO CLEAN Heavy Duty Degreaser 4/1 gal.)",,,,,10,,480.00,480.00
+"D11054 (ECO CLEAN Laundry Detergent 5 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10832","ECO CLEAN Laundry Detergent 5 gals.","Vitaltek, LLC.",0,31.03,0.00,0.00
+"Invoice","10/10/2025","INV25-10840","ECO CLEAN Laundry Detergent 5 gals.","Marinés González",1,20.00,20.00,20.00
+"Invoice","10/10/2025","INV25-10841","ECO CLEAN Laundry Detergent 5 gals.","Elia De Jesus Ruiz",1,20.00,20.00,40.00
+"Invoice","10/10/2025","INV25-10842","ECO CLEAN Laundry Detergent 5 gals.","Nayda",7,20.00,140.00,180.00
+"Invoice","10/10/2025","INV25-10843","ECO CLEAN Laundry Detergent 5 gals.","Kathydith Figueroa",1,20.00,20.00,200.00
+"Invoice","10/10/2025","INV25-10844","ECO CLEAN Laundry Detergent 5 gals.","Liarelys M. Cruz Vazquez",1,20.00,20.00,220.00
+"Invoice","10/10/2025","INV25-10846","ECO CLEAN Laundry Detergent 5 gals.","Angelica Castro",1,20.00,20.00,240.00
+"Invoice","10/10/2025","INV25-10847","ECO CLEAN Laundry Detergent 5 gals.","Luis G. Berrios",1,20.00,20.00,260.00
+"Total D11054 (ECO CLEAN Laundry Detergent 5 gals.)",,,,,13,,260.00,260.00
+"D11056 (ECO CLEAN Industrial Softener 5 gals.)",,,,,,,,""
+"Invoice","10/10/2025","INV25-10840","ECO CLEAN Industrial Softener 5 gals.","Marinés González",1,20.00,20.00,20.00
+"Total D11056 (ECO CLEAN Industrial Softener 5 gals.)",,,,,1,,20.00,20.00
+"D11062 (ECO CLEAN Laundry Bleach 5 gals.)",,,,,,,,""
+"Invoice","10/10/2025","INV25-10845","ECO CLEAN Laundry Bleach 5 gals.","Jacquelyn Santiago",1,20.00,20.00,20.00
+"Total D11062 (ECO CLEAN Laundry Bleach 5 gals.)",,,,,1,,20.00,20.00
+"D11074 (Dispenser Hand Soap and Sanitizer)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10777","Dispenser Hand Soap and Sanitizer(tripita)","Colegio Aguadeño San Francisco de Asis",4,39.57,158.28,158.28
+"Total D11074 (Dispenser Hand Soap and Sanitizer)",,,,,4,,158.28,158.28
+"D11090 (ECO CLEAN FloraMask Odor Counteractant 4/1 gal.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10833","ECO CLEAN FloraMask Odor Counteractant 4/1 gal.","Vitaltek, LLC.",0,54.99,0.00,0.00
+"Invoice","10/09/2025","INV25-10834","ECO CLEAN FloraMask Odor Counteractant 4/1 gal.","Vitaltek, LLC.",0,54.99,0.00,0.00
+"Total D11090 (ECO CLEAN FloraMask Odor Counteractant 4/1 gal.)",,,,,0,,0.00,0.00
+"D11163 (ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10782","ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.","Parador Boquemar, INC.",14,14.95,209.30,209.30
+"Invoice","10/09/2025","INV25-10827","ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.","Ultra Clean",6,14.55,87.30,296.60
+"Invoice","10/09/2025","INV25-10832","ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.","Vitaltek, LLC.",0,12.30,0.00,296.60
+"Invoice","10/10/2025","INV25-10845","ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.","Jacquelyn Santiago",2,12.95,25.90,322.50
+"Invoice","10/10/2025","INV25-10848","ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.","Damaris Chaparro",3,12.95,38.85,361.35
+"Total D11163 (ECO CLEAN Lavender  All Purpose Cleaner  4/1 gal.)",,,,,25,,361.35,361.35
+"D11165 (ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10813","ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.","Mister Price, Mayagüez",48,10.97,526.56,526.56
+"Invoice","10/09/2025","INV25-10827","ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.","Ultra Clean",6,14.55,87.30,613.86
+"Invoice","10/09/2025","INV25-10832","ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.","Vitaltek, LLC.",20,12.30,246.00,859.86
+"Invoice","10/09/2025","INV25-10835","ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.","Steps 4 Success",3,13.24,39.72,899.58
+"Total D11165 (ECO CLEAN Multipurpose Cherry Cleaner 4/1 gal.)",,,,,77,,899.58,899.58
+"D11222 (Hand Soap Lotion 4/1 gal. (NO ETIQUETA))",,,,,,,,""
+"Invoice","10/06/2025","INV25-10778","Hand Soap Lotion 4/1 gal. (NO ETIQUETA)","Prime Lab LLC",189,17.58,3322.62,3322.62
+"Invoice","10/08/2025","INV25-10814","Hand Soap Lotion 4/1 gal. (NO ETIQUETA)","Prime Lab LLC",279,17.58,4904.82,8227.44
+"Invoice","10/10/2025","INV25-10851","Hand Soap Lotion 4/1 gal. (NO ETIQUETA)","Prime Lab LLC",67,17.58,1177.86,9405.30
+"Total D11222 (Hand Soap Lotion 4/1 gal. (NO ETIQUETA))",,,,,535,,9405.30,9405.30
+"D11235 (GASCÓ Demineralized Water 55 gals.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10791","GASCÓ Demineralized Water 55 gals.","Maritime Enforcement & Logistics Svcs",5,84.15,420.75,420.75
+"Total D11235 (GASCÓ Demineralized Water 55 gals.)",,,,,5,,420.75,420.75
+"D12021 (GASCÓ Solvente EA95 55 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10826","GASCÓ Solvente EA95 55 gals.","Cannagrow Group",1,503.04,503.04,503.04
+"Total D12021 (GASCÓ Solvente EA95 55 gals.)",,,,,1,,503.04,503.04
+"D12100 (GASCÓ Clean Break-Up Degreaser 4/1 gal.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10820","GASCÓ Clean Break-Up Degreaser 4/1 gal.","Méndez & Company",40,28.14,1125.60,1125.60
+"Total D12100 (GASCÓ Clean Break-Up Degreaser 4/1 gal.)",,,,,40,,1125.60,1125.60
+"D12113 (GASCÓ Antibacterial Hand Soap Orange Flora Scent 260 gals.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10787","GASCÓ Antibacterial Hand Soap Orange Flora Scent 260 gals.","PDL COPR.",1,382.90,382.90,382.90
+"Total D12113 (GASCÓ Antibacterial Hand Soap Orange Flora Scent 260 gals.)",,,,,1,,382.90,382.90
+"D12271 (FUSIÓN Ethyl Alcohol Antiseptic 70% 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10774","FUSIÓN Ethyl Alcohol Antiseptic 70% 4/1 gal.","Union de Mayoristas Coop",100,30.00,3000.00,3000.00
+"Total D12271 (FUSIÓN Ethyl Alcohol Antiseptic 70% 4/1 gal.)",,,,,100,,3000.00,3000.00
+"D12280 (BRITE STAR H-SOAP Liquid Antibacterial Hand Soap 4/1 gal.)",,,,,,,,""
+"Invoice","10/10/2025","INV25-10849","BRITE STAR H-SOAP Liquid Antibacterial Hand Soap 4/1 gal.(GALONES BLANCOS)","JaniClean",50,21.20,1060.00,1060.00
+"Total D12280 (BRITE STAR H-SOAP Liquid Antibacterial Hand Soap 4/1 gal.)",,,,,50,,1060.00,1060.00
+"D12353 (GASCÓ Sanitizing Spray 70% alcohol 4/1 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10833","GASCÓ Sanitizing Spray 70% alcohol 4/1 gals.","Vitaltek, LLC.",1,54.83,54.83,54.83
+"Total D12353 (GASCÓ Sanitizing Spray 70% alcohol 4/1 gals.)",,,,,1,,54.83,54.83
+"D12357 (GASCÓ Ethyl Alcohol 70% 4/1 gals.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10793","GASCÓ Ethyl Alcohol 70% 4/1 gals.","Orbit Enterprises, Inc.",3,47.00,141.00,141.00
+"Invoice","10/09/2025","INV25-10818","GASCÓ Ethyl Alcohol 70% 4/1 gals.","Taluna Corp",50,32.17,1608.50,1749.50
+"Invoice","10/09/2025","INV25-10819","GASCÓ Ethyl Alcohol 70% 4/1 gals.","Taluna Corp",50,32.17,1608.50,3358.00
+"Total D12357 (GASCÓ Ethyl Alcohol 70% 4/1 gals.)",,,,,103,,3358.00,3358.00
+"D12363 (GASCÓ Isopropyl Alcohol 70% 12/32 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10780","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Ashford Presbyterian Hospital",20,38.41,768.20,768.20
+"Invoice","10/06/2025","INV25-10781","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",1,34.57,34.57,802.77
+"Invoice","10/06/2025","INV25-10783","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",2,34.57,69.14,871.91
+"Invoice","10/07/2025","INV25-10796","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",1,34.57,34.57,906.48
+"Invoice","10/08/2025","INV25-10805","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",1,34.57,34.57,941.05
+"Invoice","10/08/2025","INV25-10806","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",1,34.57,34.57,975.62
+"Invoice","10/09/2025","INV25-10822","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Pharma Max",3,34.57,103.71,1079.33
+"Invoice","10/10/2025","INV25-10698","GASCÓ Isopropyl Alcohol 70% 12/32 oz.","Luis Bolillo",1,40.00,40.00,1119.33
+"Total D12363 (GASCÓ Isopropyl Alcohol 70% 12/32 oz.)",,,,,30,,1119.33,1119.33
+"D12371 (GASCÓ Ethyl Alcohol 99% 5 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10816","GASCÓ Ethyl Alcohol 99% 5 gals.","RJFR Empresas, Inc.",8,77.03,616.24,616.24
+"Total D12371 (GASCÓ Ethyl Alcohol 99% 5 gals.)",,,,,8,,616.24,616.24
+"D12400 (GREAT VALUE Sanitizing Spray 70% alcohol 12/32 oz.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10810","GREAT VALUE Sanitizing Spray 70% alcohol 12/32 oz.","Walmart Stores, Inc.",18,36.84,663.12,663.12
+"Total D12400 (GREAT VALUE Sanitizing Spray 70% alcohol 12/32 oz.)",,,,,18,,663.12,663.12
+"D12701 (GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10777","GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.","Colegio Aguadeño San Francisco de Asis",40,28.47,1138.80,1138.80
+"Invoice","10/07/2025","INV25-10798","GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.","Méndez & Company",0,20.83,0.00,1138.80
+"Invoice","10/09/2025","INV25-10823","GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.","Méndez & Company",12,20.83,249.96,1388.76
+"Invoice","10/09/2025","INV25-10832","GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.","Vitaltek, LLC.",30,18.95,568.50,1957.26
+"Total D12701 (GASCÓ 160 Lemon Multipurpose Detergent & Disinfectant 4/1 gal.)",,,,,82,,1957.26,1957.26
+"D13002 (GASCÓ FoamyChlor 5 gals.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10797","GASCÓ FoamyChlor 5 gals.","Méndez & Company",20,39.07,781.40,781.40
+"Invoice","10/09/2025","INV25-10820","GASCÓ FoamyChlor 5 gals.","Méndez & Company",20,39.07,781.40,1562.80
+"Total D13002 (GASCÓ FoamyChlor 5 gals.)",,,,,40,,1562.80,1562.80
+"D13041 (GASCÓ Alcohol Isopropílico 70% 4/1 gal.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10775","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",12,30.16,361.92,361.92
+"Invoice","10/06/2025","INV25-10777","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Colegio Aguadeño San Francisco de Asis",40,32.43,1297.20,1659.12
+"Invoice","10/06/2025","INV25-10779","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",12,30.16,361.92,2021.04
+"Invoice","10/06/2025","INV25-10781","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",9,30.16,271.44,2292.48
+"Invoice","10/06/2025","INV25-10783","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",7,30.16,211.12,2503.60
+"Invoice","10/07/2025","INV25-10796","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",7,30.16,211.12,2714.72
+"Invoice","10/08/2025","INV25-10803","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","ShareTech Group",1,34.45,34.45,2749.17
+"Invoice","10/08/2025","INV25-10805","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",10,30.16,301.60,3050.77
+"Invoice","10/08/2025","INV25-10806","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",15,30.16,452.40,3503.17
+"Invoice","10/09/2025","INV25-10822","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",10,30.16,301.60,3804.77
+"Invoice","10/09/2025","INV25-10829","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Freshmart",1,31.56,31.56,3836.33
+"Invoice","10/10/2025","INV25-10839","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Star Distributors Inc.",48,32.33,1551.84,5388.17
+"Invoice","10/10/2025","INV25-10852","GASCÓ Alcohol Isopropílico 70% 4/1 gal.","Pharma Max",12,30.16,361.92,5750.09
+"Total D13041 (GASCÓ Alcohol Isopropílico 70% 4/1 gal.)",,,,,184,,5750.09,5750.09
+"D13044 (GASCÓ Alcohol Isopropílico 70% 24/16 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10781","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",1,34.57,34.57,34.57
+"Invoice","10/06/2025","INV25-10783","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",3,34.57,103.71,138.28
+"Invoice","10/07/2025","INV25-10796","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",2,34.57,69.14,207.42
+"Invoice","10/08/2025","INV25-10805","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",1,34.57,34.57,241.99
+"Invoice","10/08/2025","INV25-10806","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",2,34.57,69.14,311.13
+"Invoice","10/09/2025","INV25-10822","GASCÓ Alcohol Isopropílico 70% 24/16 oz.","Pharma Max",3,34.57,103.71,414.84
+"Total D13044 (GASCÓ Alcohol Isopropílico 70% 24/16 oz.)",,,,,12,,414.84,414.84
+"D13048 (GASCÓ Isopropyl Alcohol 99% 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10794","GASCÓ Isopropyl Alcohol 99% 4/1 gal.","Bayamon Hospital Supply, Corp.",15,72.27,1084.05,1084.05
+"Invoice","10/09/2025","INV25-10832","GASCÓ Isopropyl Alcohol 99% 4/1 gal.","Vitaltek, LLC.",8,42.00,336.00,1420.05
+"Total D13048 (GASCÓ Isopropyl Alcohol 99% 4/1 gal.)",,,,,23,,1420.05,1420.05
+"D13052 (GASCÓ Alcohol Isopropílico 99.9% 5 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10832","GASCÓ Alcohol Isopropílico 99.9% 5 gals.","Vitaltek, LLC.",5,52.50,262.50,262.50
+"Total D13052 (GASCÓ Alcohol Isopropílico 99.9% 5 gals.)",,,,,5,,262.50,262.50
+"D13053 (GASCÓ  Alcohol Isopropílico 99.9% 55 gals.)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10832","GASCÓ  Alcohol Isopropílico 99.9% 55 gals.","Vitaltek, LLC.",1,577.50,577.50,577.50
+"Total D13053 (GASCÓ  Alcohol Isopropílico 99.9% 55 gals.)",,,,,1,,577.50,577.50
+"D13056 (GASCÓ Alcohol Isopropílico 91% 24/16 oz.)",,,,,,,,""
+"Invoice","10/06/2025","INV25-10781","GASCÓ Alcohol Isopropílico 91% 24/16 oz.","Pharma Max",1,45.98,45.98,45.98
+"Invoice","10/06/2025","INV25-10783","GASCÓ Alcohol Isopropílico 91% 24/16 oz.","Pharma Max",2,45.98,91.96,137.94
+"Invoice","10/07/2025","INV25-10796","GASCÓ Alcohol Isopropílico 91% 24/16 oz.","Pharma Max",2,45.98,91.96,229.90
+"Total D13056 (GASCÓ Alcohol Isopropílico 91% 24/16 oz.)",,,,,5,,229.90,229.90
+"D18015 (DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",500,3.60,1800.00,1800.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",500,3.60,1800.00,3600.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",500,3.60,1800.00,5400.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",500,3.60,1800.00,7200.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",400,3.60,1440.00,8640.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.","Sudoc, LLC",500,3.60,1800.00,10440.00
+"Total D18015 (DOT Mold Deep Stain and Extra Strength Cleaner 1 gal.)",,,,,2900,,10440.00,10440.00
+"D18017 (DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.","Sudoc, LLC",300,0.98,294.00,294.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.","Sudoc, LLC",700,0.98,686.00,980.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.","Sudoc, LLC",700,0.98,686.00,1666.00
+"Invoice","10/07/2025","INV25-10792","DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.","Sudoc, LLC",600,0.98,588.00,2254.00
+"Total D18017 (DOT Mold Deep Stain and Extra Strength Cleaner 32 oz.)",,,,,2300,,2254.00,2254.00
+"D18023 (DOT Fabric and Carpet Rescue 32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10792","DOT Fabric and Carpet Rescue 32 oz.","Sudoc, LLC",100,1.17,117.00,117.00
+"Total D18023 (DOT Fabric and Carpet Rescue 32 oz.)",,,,,100,,117.00,117.00
+"D20091CE (GASCÓ LORE Pot and Pan Dishwash 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10800","Lore Pot and Pan Dishwash 4/1 gal","Distrito de Cabo Rojo",19,31.82,604.58,604.58
+"Invoice","10/08/2025","INV25-10801","Lore Pot and Pan Dishwash 4/1 gal","Distrito de Maricao",17,31.82,540.94,1145.52
+"Total D20091CE (GASCÓ LORE Pot and Pan Dishwash 4/1 gal.)",,,,,36,,1145.52,1145.52
+"D20092CE (Quaternary Ammonia Sanitizer 10% 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10800","Quaternary Ammonia Sanitizer 10% 4/1 gal.","Distrito de Cabo Rojo",19,46.38,881.22,881.22
+"Invoice","10/08/2025","INV25-10801","Quaternary Ammonia Sanitizer 10% 4/1 gal.","Distrito de Maricao",10,46.38,463.80,1345.02
+"Total D20092CE (Quaternary Ammonia Sanitizer 10% 4/1 gal.)",,,,,29,,1345.02,1345.02
+"D20093CE (Multipurpose Cleaner 12/32 oz.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10800","Multipurpose Cleaner 12/32 oz.","Distrito de Cabo Rojo",11,27.13,298.43,298.43
+"Invoice","10/08/2025","INV25-10801","Multipurpose Cleaner 12/32 oz.","Distrito de Maricao",7,27.13,189.91,488.34
+"Total D20093CE (Multipurpose Cleaner 12/32 oz.)",,,,,18,,488.34,488.34
+"D20097CE (Hand Soap Antibacterial 4/1 gal.)",,,,,,,,""
+"Invoice","10/08/2025","INV25-10800","Hand Soap Antibacterial 4/1 gal.","Distrito de Cabo Rojo",10,25.03,250.30,250.30
+"Invoice","10/08/2025","INV25-10801","Hand Soap Antibacterial 4/1 gal.","Distrito de Maricao",1,25.03,25.03,275.33
+"Total D20097CE (Hand Soap Antibacterial 4/1 gal.)",,,,,11,,275.33,275.33
+"D60000 (SPARKKLE Heavy Duty Degreaser 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Heavy Duty Degreaser 4/1 gal.","Méndez & Company",0,24.15,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Heavy Duty Degreaser 4/1 gal.","Méndez & Company",84,24.15,2028.60,2028.60
+"Total D60000 (SPARKKLE Heavy Duty Degreaser 4/1 gal.)",,,,,84,,2028.60,2028.60
+"D60001 (SPARKKLE Oven an Grill Cleaner 12/32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Oven an Grill Cleaner 12/32 oz.","Méndez & Company",0,22.57,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Oven an Grill Cleaner 12/32 oz.","Méndez & Company",0,22.57,0.00,0.00
+"Total D60001 (SPARKKLE Oven an Grill Cleaner 12/32 oz.)",,,,,0,,0.00,0.00
+"D60002 (SPARKKLE Ready to Use Disinfectant and Detergent 12/32 oz.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Ready to Use Disinfectant and Detergent 12/32 oz.","Méndez & Company",0,27.39,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Ready to Use Disinfectant and Detergent 12/32 oz.","Méndez & Company",0,27.39,0.00,0.00
+"Total D60002 (SPARKKLE Ready to Use Disinfectant and Detergent 12/32 oz.)",,,,,0,,0.00,0.00
+"D60005 (SPARKKLE Premium Dishwashing Detergent 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Premium Dishwashing Detergent 4/1 gal.","Méndez & Company",0,25.61,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Premium Dishwashing Detergent 4/1 gal.","Méndez & Company",108,25.61,2765.88,2765.88
+"Total D60005 (SPARKKLE Premium Dishwashing Detergent 4/1 gal.)",,,,,108,,2765.88,2765.88
+"D60013 (SPARKKLE Lavender Multipurpose Cleaner 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Lavender Multipurpose Cleaner 4/1 gal.","Méndez & Company",48,14.98,719.04,719.04
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Lavender Multipurpose Cleaner 4/1 gal.","Méndez & Company",24,14.98,359.52,1078.56
+"Total D60013 (SPARKKLE Lavender Multipurpose Cleaner 4/1 gal.)",,,,,72,,1078.56,1078.56
+"D60014 (SPARKKLE Lemon Multipurpose Cleaner 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Lemon Multipurpose Cleaner 4/1 gal.","Méndez & Company",0,14.98,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Lemon Multipurpose Cleaner 4/1 gal.","Méndez & Company",84,14.98,1258.32,1258.32
+"Total D60014 (SPARKKLE Lemon Multipurpose Cleaner 4/1 gal.)",,,,,84,,1258.32,1258.32
+"D60015 (SPARKKLE Cherry Multipurpose Cleaner 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Cherry Multipurpose Cleaner 4/1 gal.","Méndez & Company",0,14.98,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Cherry Multipurpose Cleaner 4/1 gal.","Méndez & Company",24,14.98,359.52,359.52
+"Total D60015 (SPARKKLE Cherry Multipurpose Cleaner 4/1 gal.)",,,,,24,,359.52,359.52
+"D60016 (SPARKKLE Green Apple Multipurpose Cleaner 4/1 gal.)",,,,,,,,""
+"Invoice","10/07/2025","INV25-10798","SPARKKLE Green Apple Multipurpose Cleaner 4/1 gal.","Méndez & Company",0,14.98,0.00,0.00
+"Invoice","10/09/2025","INV25-10823","SPARKKLE Green Apple Multipurpose Cleaner 4/1 gal.","Méndez & Company",0,14.98,0.00,0.00
+"Total D60016 (SPARKKLE Green Apple Multipurpose Cleaner 4/1 gal.)",,,,,0,,0.00,0.00
+"DMM-Mercancía Miscelánea (Mercancía Miscelanea)",,,,,,,,""
+"Invoice","10/06/2025","OUT-14907","SEKO DOSING PROSINK 2GAP","Ralph Smith Rep",3,0.00,0.00,0.00
+"Invoice","10/06/2025","OUT-14907","BOTELLAS VACIAS 32 OZ CON ROCIADORES","Ralph Smith Rep",12,0.00,0.00,0.00
+"Invoice","10/06/2025","OUT-14908","PAILAS DE 5 GALS CON SUS TAPAS","Ralph Smith Rep",3,0.00,0.00,0.00
+"Credit Memo","10/08/2025","CR25-0537","MAQUINAS SECADORAS HUEBSH ELECTRIC DRYERS 30 SERIES","Island Equipment & Services, LLC",-2,1000.00,-2000.00,-2000.00
+"Invoice","10/10/2025","OUT-14983","PAILAS DE 5 GALONES VACIAS","Méndez & Company",3,0.00,0.00,-2000.00
+"Total DMM-Mercancía Miscelánea (Mercancía Miscelanea)",,,,,19,,-2000.00,-2000.00
+"DMS-00100 (Liquid Caustic Soda Blend 55 gals. (Mays))",,,,,,,,""
+"Invoice","10/08/2025","INV25-10758","Liquid Caustic Soda Blend 55 gals. (Mays) (4 DRONES)","Mays Ochoa Chemical Company",4,68.75,275.00,275.00
+"Total DMS-00100 (Liquid Caustic Soda Blend 55 gals. (Mays))",,,,,4,,275.00,275.00
+"SALES DISCOUNTS (Sales Discounts)",,,,,,,,""
+"Credit Memo","10/08/2025","SD-1000","Sales Discounts","Walmart Stores, Inc.",-1,167.69,-167.69,-167.69
+"Total SALES DISCOUNTS (Sales Discounts)",,,,,-1,,-167.69,-167.69
+"VENTA EQUIPO (VENTA EQUIPO)",,,,,,,,""
+"Invoice","10/10/2025","INV25-10837","MAQUINA LLENADORA","En La Madre",1,449.00,449.00,449.00
+"Total VENTA EQUIPO (VENTA EQUIPO)",,,,,1,,449.00,449.00
+"Total Parts",,,,,9115,,93431.50,93431.50
+"Service",,,,,,,,""
+"DMM-FREIGHT (Entrega mercancía)",,,,,,,,""
+"Invoice","10/09/2025","INV25-10818","Entrega mercancía","Taluna Corp",1,25.00,25.00,25.00
+"Invoice","10/09/2025","INV25-10819","Entrega mercancía","Taluna Corp",1,70.00,70.00,95.00
+"Total DMM-FREIGHT (Entrega mercancía)",,,,,2,,95.00,95.00
+"SERV-SUDOC.",,,,,,,,""
+"Invoice","10/07/2025","INV25-10789","SHIPPING CHARGES SEPT 25  7 SHIPMENTS","Sudoc, LLC",1,165.35,165.35,165.35
+"Invoice","10/07/2025","INV25-10789","MAGIC TRANSPORT 1952831 $620.70","Sudoc, LLC",1,620.70,620.70,786.05
+"Invoice","10/07/2025","INV25-10790","PROFESSIONAL SERVICES MR. DAN BIGMAN","Sudoc, LLC",40,50.00,2000.00,2786.05
+"Invoice","10/07/2025","INV25-10790","PROFESSIONAL SERVICES MRS ANDREA  SEPT. 2025","Sudoc, LLC",160,33.60,5376.00,8162.05
+"Invoice","10/07/2025","INV25-10790","ANDREA'S ONBOARDING COSTS SEPT. 2025","Sudoc, LLC",1,500.00,500.00,8662.05
+"Invoice","10/07/2025","INV25-10790","ANDREA'S HEALTH INSURANCE  SEPT. 2025","Sudoc, LLC",1,317.00,317.00,8979.05
+"Invoice","10/07/2025","INV25-10790","ENTERED 10/7","Sudoc, LLC",1,"","",8979.05
+"Total SERV-SUDOC.",,,,,205,,8979.05,8979.05
+"Total Service",,,,,207,,9074.05,9074.05
+"Other Charges",,,,,,,,""
+"Credit Card Charge",,,,,,,,""
+"Invoice","10/07/2025","INV25-10788","CREDIT CARD FEE 3%","Fort Buchanan/ Community Club",1,22.20,22.20,22.20
+"Total Credit Card Charge",,,,,1,,22.20,22.20
+"Total Other Charges",,,,,1,,22.20,22.20
+"TOTAL",,,,,9323,,102527.75,102527.75

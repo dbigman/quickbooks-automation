@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dashboard testing guide (`docs/DASHBOARD_TESTING_GUIDE.md`)
 - Test data creation script (`create_test_sales_data.py`)
 - MCP configuration files (`mcp.json`) added to `.gitignore` to prevent committing sensitive settings
+- Excel MCP server (`excel-mcp-server`) for Excel file manipulation
+- Backordered items report in analyzer output (items with Qty=0)
+- Transaction summary report showing transaction-level aggregates
 
 ### Changed
 
@@ -32,6 +35,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dashboard layout improved: title moved to sidebar, section headers removed
 - Weekly trend charts now show Monday-Friday only and display side-by-side
 - Success messages now display in sidebar instead of main content area
+- Dashboard sidebar: removed "Current File:" display, reduced "Latest Update" font size
+- MCP server organization: moved common servers (context7, sequentialthinking, time, octocode, spec-workflow) to global config
+- Analyzer now filters out excluded product codes (DMM-FREIGHT, D-SAMPLES, DMS-00100) and blank product codes from all output sheets
+- Analyzer excludes transactions with Qty=0 from Transactions sheet output (moved to Backordered sheet)
 
 ### Fixed
 
@@ -39,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dashboard now has access to Date column for weekday trend analysis
 - Column name compatibility between analyzer output and dashboard expectations
 - Error messages updated to reflect 'Transactions' sheet requirement
+- Dashboard sidebar "Latest Update" now displays correctly using `st.caption()`
 
 ### Security
 

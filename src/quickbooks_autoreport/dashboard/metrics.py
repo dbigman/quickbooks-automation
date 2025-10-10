@@ -111,7 +111,7 @@ class MetricsCalculator:
         """
         Get top N products by revenue.
 
-        Returns top N products sorted by Sales_Amount (already aggregated).
+        Aggregates sales by product and returns top N sorted by total revenue.
 
         Args:
             top_n: Number of top products to return (default from config)
@@ -135,9 +135,11 @@ class MetricsCalculator:
             )
             return pd.DataFrame(columns=[product_column, 'Sales_Amount'])
 
-        # Data is already aggregated, just sort and take top N
+        # Aggregate by product and sum revenue
         product_revenue = (
-            self.df[[product_column, 'Sales_Amount']]
+            self.df.groupby(product_column)['Sales_Amount']
+            .sum()
+            .reset_index()
             .sort_values('Sales_Amount', ascending=False)
             .head(top_n)
             .reset_index(drop=True)
@@ -157,7 +159,7 @@ class MetricsCalculator:
         """
         Get top N products by units sold.
 
-        Returns top N products sorted by Sales_Qty (already aggregated).
+        Aggregates sales by product and returns top N sorted by total units.
 
         Args:
             top_n: Number of top products to return (default from config)
@@ -181,9 +183,11 @@ class MetricsCalculator:
             )
             return pd.DataFrame(columns=[product_column, 'Sales_Qty'])
 
-        # Data is already aggregated, just sort and take top N
+        # Aggregate by product and sum units
         product_units = (
-            self.df[[product_column, 'Sales_Qty']]
+            self.df.groupby(product_column)['Sales_Qty']
+            .sum()
+            .reset_index()
             .sort_values('Sales_Qty', ascending=False)
             .head(top_n)
             .reset_index(drop=True)

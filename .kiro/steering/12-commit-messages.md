@@ -91,10 +91,53 @@ Common scopes used in this project:
 
 * **spec:** Specification documents and planning
 * **dashboard:** Streamlit dashboard application
+* **analyzer:** Sales data analysis CLI tool (`analyze_sales_data.py`)
 * **quickbooks:** QuickBooks integration and qbXML
 * **odoo:** Odoo ERP integration
 * **mps:** Material Planning System
 * **config:** Configuration files and settings
+* **mcp:** Model Context Protocol server configuration
 * **deps:** Dependencies and package management
+* **ui:** User interface components and styling
+* **data:** Data processing and transformation logic
+
+## Recent Commit Examples
+
+```text
+feat(analyzer): add backordered items report
+
+Add new sheet to output Excel file showing items with Qty=0.
+Includes Product_Code, Product_Name, Invoice_Number, and Customer.
+```
+
+```text
+feat(analyzer): filter excluded product codes
+
+Filter out DMM-FREIGHT, D-SAMPLES, DMS-00100, and blank product codes
+from all output sheets. Log filtered count for transparency.
+```
+
+```text
+refactor(dashboard): improve sidebar layout
+
+- Remove "Current File:" display
+- Reduce "Latest Update" font size using st.caption()
+- Improve visual hierarchy and spacing
+```
+
+```text
+chore(mcp): reorganize server configuration
+
+Move common servers (context7, sequentialthinking, time, octocode,
+spec-workflow) to global config. Keep project-specific servers
+(filesystem, odoo, excel, redis) in project config.
+```
+
+```text
+fix(mcp): correct Excel MCP server package name
+
+Change from non-existent @pimzino/excel-mcp to excel-mcp-server.
+Use uvx instead of npx for Python-based MCP server.
+```
 
 Use this format for all commit messages to maintain consistency and enable automated tooling.

@@ -154,26 +154,16 @@ def _render_status_section(
         current_file: Currently selected file
         last_update: Timestamp of last update
     """
-    # Display last update timestamp
+    # Display last update timestamp with smaller font
     if last_update:
-        st.metric(
-            label="Latest Update",
-            value=format_datetime(last_update)
-        )
+        formatted_time = format_datetime(last_update)
+        st.caption(f"Latest Update: {formatted_time}")
         logger.debug(
             f"{LOG_EMOJI_SUCCESS} Status displayed - "
             f"Last update: {last_update}"
         )
     else:
-        st.info("No data loaded yet")
-
-    # Display current filename
-    if current_file:
-        st.text("Current File:")
-        st.code(current_file.name, language=None)
-    else:
-        st.text("Current File:")
-        st.code("None selected", language=None)
+        st.caption("No data loaded yet")
 
 
 def render_file_metadata(
