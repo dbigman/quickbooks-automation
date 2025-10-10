@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+- Column aliases in Transactions sheet for dashboard compatibility (Sales_Amount, Sales_Qty, Transaction_Total)
 - Sales Dashboard specification with comprehensive requirements, design, and implementation plan
 - `.kiro/specs/sales-dashboard/requirements.md` - User stories and acceptance criteria for dashboard features
 - `.kiro/specs/sales-dashboard/design.md` - Technical architecture and component design
@@ -21,23 +23,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MCP configuration files (`mcp.json`) added to `.gitignore` to prevent committing sensitive settings
 
 ### Changed
+
 - Updated `.gitignore` to exclude all `mcp.json` files throughout the repository
-- **Dashboard now reads from 'Product Summary' sheet** instead of 'Transactions' sheet
+- **Dashboard now reads from 'Transactions' sheet** with transaction-level data for weekday analysis
 - Dashboard configuration updated to use `Product_Name` column instead of `Product`
-- Metrics calculator simplified to work with pre-aggregated data
-- Required columns changed to: `Product_Name`, `Sales_Amount`, `Sales_Qty`
+- Required columns changed to: `Date`, `Product_Name`, `Sales_Amount`, `Sales_Qty`
+- Analyzer now adds column aliases (Sales_Amount, Sales_Qty, Transaction_Total) to Transactions sheet
 - Dashboard layout improved: title moved to sidebar, section headers removed
 - Weekly trend charts now show Monday-Friday only and display side-by-side
 - Success messages now display in sidebar instead of main content area
 
 ### Fixed
-- Dashboard data loader now correctly reads from specified Excel sheet
-- Product charts now use correct column names from Product Summary data
-- Error messages updated to reflect 'Product Summary' sheet requirement
+
+- Dashboard data loader now correctly reads from Transactions sheet with transaction-level data
+- Dashboard now has access to Date column for weekday trend analysis
+- Column name compatibility between analyzer output and dashboard expectations
+- Error messages updated to reflect 'Transactions' sheet requirement
 
 ### Security
+
 - Prevented accidental commit of MCP configuration files that may contain sensitive settings
 
 ### Performance
-- Improved dashboard loading speed by using pre-aggregated Product Summary data
-- Removed unnecessary groupby operations since data is already aggregated
+
+- Dashboard efficiently aggregates transaction-level data for metrics and charts
+- Optimized data type conversions in ExcelLoader for faster processing

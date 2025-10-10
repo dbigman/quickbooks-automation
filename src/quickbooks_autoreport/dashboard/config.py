@@ -16,8 +16,9 @@ REPORTS_DIR: Path = Path("reports")
 POLL_INTERVAL_SECONDS: int = 3600  # 1 hour
 
 # Data Configuration
-SHEET_NAME: str = "Product Summary"  # Sheet to read from Excel file
+SHEET_NAME: str = "Transactions"  # Sheet to read from Excel file
 REQUIRED_COLUMNS: List[str] = [
+    'Date',
     'Product_Name',
     'Sales_Amount',
     'Sales_Qty'

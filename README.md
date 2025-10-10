@@ -106,7 +106,7 @@ Settings are automatically saved to `~/.qb_auto_reporter_settings.json`:
 
 The Sales Analytics Dashboard provides interactive visualization of sales data:
 
-1. **Launch Dashboard**: Run `streamlit run apps/dashboard/Home.py`
+1. **Launch Dashboard**: Run ``streamlit run apps/dashboard/Home.py
 2. **Select File**: Choose an Excel file from the sidebar dropdown
 3. **View Analytics**: See key metrics, top products, and weekly trends
 4. **Refresh Data**: Use manual refresh button or automatic hourly polling

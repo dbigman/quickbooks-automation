@@ -433,6 +433,12 @@ def main():
         f"(removed {len(transactions) - len(transactions_output)} with Qty=0)"
     )
 
+    # Add column aliases for dashboard compatibility
+    transactions_output["Sales_Amount"] = transactions_output["Amount"]
+    transactions_output["Sales_Qty"] = transactions_output["Qty"]
+    transactions_output["Transaction_Total"] = transactions_output["Amount"]
+    logger.info("📋 Added column aliases for dashboard compatibility")
+
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
         transactions_output.to_excel(
             writer, sheet_name="Transactions", index=False

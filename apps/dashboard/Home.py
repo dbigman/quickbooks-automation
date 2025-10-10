@@ -225,7 +225,7 @@ def load_data(
             st.error(f"❌ {error_str}")
             st.info(
                 "💡 **Troubleshooting:** Ensure your Excel file "
-                "has a 'Product Summary' sheet with columns: Product_Name, "
+                "has a 'Transactions' sheet with columns: Date, Product_Name, "
                 "Sales_Amount, Sales_Qty"
             )
         else:
